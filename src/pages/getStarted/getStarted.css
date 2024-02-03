@@ -3,6 +3,8 @@
     justify-content: space-between;
     position: relative;
     transform: translate(0%, 25%);
+    max-height: 520px;
+    height: 100%;
 }
 .left-bar {
     display: flex;
@@ -11,7 +13,7 @@
     align-items: flex-start;
     max-width: 50%;
     width: fit-content;
-    padding: 0 90px 0 150px;
+    padding: 90px 90px 90px 150px;
     box-sizing: border-box;
 }
 .left-bar__heading {
@@ -19,6 +21,16 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 24px;
+    margin-left: 59px;
+}
+.left-bar__heading::before {
+    content: url(img/users.svg);
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: relative;
+    top: 7px;
+    left: -59px;
 }
 .left-bar__h1 {
     color: #ffffff;
@@ -50,4 +62,12 @@
 .right-bar {
     border-radius: 48px;
     background-color: #161616;
+    padding: 90px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right-bar img {
+    width: 421px;
 }
