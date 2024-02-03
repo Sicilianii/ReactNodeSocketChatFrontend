@@ -1,0 +1,10 @@
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 78px;
+    height: 100%;
+    width: 100%;
+    background-color: #8f0def;
+}
+

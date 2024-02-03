@@ -1,0 +1,9 @@
+.selector {
+    padding: 27px 24px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+}
