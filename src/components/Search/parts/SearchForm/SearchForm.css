@@ -4,7 +4,10 @@
     display: flex;
     align-items: center;
     position: relative;
+    max-width: 1078px;
+    width: 100%;
 }
+
 .search__form-inpt {
     top: 16px;
     left: 400px;

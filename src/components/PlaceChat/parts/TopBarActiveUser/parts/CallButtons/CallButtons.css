@@ -1,0 +1,7 @@
+.box-button {
+    display: flex;
+    width: fit-content;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
