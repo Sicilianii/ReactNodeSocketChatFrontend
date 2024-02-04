@@ -1,0 +1,60 @@
+.user {
+    height: 100%;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-left: 2px solid #313131;
+    padding: 40px 15px 15px 15px;
+    box-sizing: border-box;
+    position: relative;
+    align-items: center;
+}
+.user__image {
+    width: 176px;
+    height: 176px;
+    border-radius: 100000px;
+    background-image: url('./img/user1.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.user__close-info {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+.user__name {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 15px;
+}
+.user__status {
+    margin-top: 4px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 20px;
+    position: relative;
+    padding-left: 8px;
+    box-sizing: border-box;
+}
+.user__status::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 30px;
+    position: absolute;
+    left: -5px;
+    top: 7px;
+}
+
+
