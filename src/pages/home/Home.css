@@ -6,9 +6,6 @@
 }
 .main-place__chats {
     display: flex;
-    justify-content: flex-end;
     background-color: #161616;
-    flex-direction: column;
-    align-items: end;
     border: 1px solid #313131;
 }

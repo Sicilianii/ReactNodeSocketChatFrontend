@@ -4,7 +4,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1078px;
     width: 100%;
     border-bottom: 2px solid #313131;
 }

@@ -1,0 +1,16 @@
+.navigation {
+    width: 280px;
+    min-width: 280px;
+    background-color: #313131;
+}
+.navigation__heading {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: left;
+    width: 100%;
+    display: block;
+    padding: 12px 24px;
+    box-sizing: border-box;
+}
