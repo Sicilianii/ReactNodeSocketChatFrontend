@@ -3,6 +3,7 @@
     justify-content: space-between;
     position: relative;
     transform: translate(0%, 25%);
+    background-color: #313131;
     max-height: 520px;
     height: 100%;
 }

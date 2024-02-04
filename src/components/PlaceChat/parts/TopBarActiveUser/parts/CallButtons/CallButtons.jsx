@@ -3,7 +3,7 @@ import './CallButtons.css';
 export default function CallButtons() {
     return(
         <div className={'box-button'}>
-            <button>
+            <button className={'box-button__butts'}>
                 <svg viewBox="0 0 24 24"
                      width="24" height="24" fill="none">
                     <svg viewBox="0 0 576 512" width="24" height="24" fill="#fff"
@@ -30,7 +30,7 @@ export default function CallButtons() {
                     </defs>
                 </svg>
             </button>
-            <button>
+            <button className={'box-button__butts'}>
                 <svg viewBox="0 0 24 20"
                      width="24" height="20" fill="none">
                     <svg viewBox="0 0 512 512" width="20" height="20" fill="#fff"

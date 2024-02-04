@@ -5,3 +5,9 @@
     justify-content: center;
     align-items: center;
 }
+.box-button__butts {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

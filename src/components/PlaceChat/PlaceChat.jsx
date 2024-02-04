@@ -7,7 +7,7 @@ export default function PlaceChat() {
     return(
         <>
             <TopBarActiveUser />
-            <div>
+            <div className={'chat'}>
                 <Chat />
                 <CardActiveUser />
             </div>
