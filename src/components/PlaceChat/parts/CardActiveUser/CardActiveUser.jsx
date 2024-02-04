@@ -35,6 +35,24 @@ export default function CardActiveUser() {
             <span className={'user__name'}>Zofiya</span>
             <span className={'user__status'}>Online now</span>
             <BottomButtonsUser />
+            <ul className={'user__info'}>
+                <li className={'user__info-item'}>
+                    <span className={'user__info-item-name'}>Job Title</span>
+                    <span className={'user__info-item-val'}>Marketing Manager</span>
+                </li>
+                <li className={'user__info-item'}>
+                    <span className={'user__info-item-name'}>Email Address</span>
+                    <a href={'mailto:john@example.com'} className={'user__info-item-val'}>john@example.com</a>
+                </li>
+                <li className={'user__info-item'}>
+                    <span className={'user__info-item-name'}>Phone Call</span>
+                    <span className={'user__info-item-val'}>Not Available</span>
+                </li>
+                <li className={'user__info-item'}>
+                    <span className={'user__info-item-name'}>Local Timezone</span>
+                    <span className={'user__info-item-val'}>12:15 PM</span>
+                </li>
+            </ul>
         </article>
     );
 }

@@ -56,5 +56,32 @@
     left: -5px;
     top: 7px;
 }
+.user__info {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.user__info-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.user__info-item-name {
+    color: darkgray;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+}
+.user__info-item-val {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+}
+
 
 
