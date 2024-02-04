@@ -1,0 +1,19 @@
+.bottom__bar-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border-top: 1px solid #313131;
+}
+.tools {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.tools-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
