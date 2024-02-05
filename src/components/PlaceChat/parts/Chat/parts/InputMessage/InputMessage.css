@@ -2,8 +2,7 @@
     width: 100%;
     border: 1px solid #313131;
     border-radius: 15px;
-    max-height: 132px;
-    height: 100%;
+    height: fit-content;
 }
 .form__textarea {
     width: 100%;
