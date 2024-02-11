@@ -1,0 +1,26 @@
+.add-chat-btn {
+    padding: 24px 24px 24px 40px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: none;
+    border-top: 1px solid #434343;
+    outline: none;
+    color: white;
+    transition: all 200ms;
+    cursor: pointer;
+}
+.add-chat-btn:hover {
+    background: #434343;
+    transition: all 200ms;
+}
+.add-chat-btn__svg {
+    width: 12px;
+    height: 12px;
+    fill: white;
+}
