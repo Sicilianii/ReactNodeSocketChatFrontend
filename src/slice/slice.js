@@ -6,7 +6,7 @@ const initialState = {
             id: '#00001',
             name: 'Mike',
             chats: {
-                workChat: '#W0001',
+                workChat: ['$00001'],
             },
             friends: ['#00002','#00003']
         },
@@ -24,12 +24,22 @@ const initialState = {
         }
     ],
     chats: {
-        recentChats: {
+        recentChats: [
 
-        },
-        groupChats: {
-
-        }
+        ],
+        groupChats: [
+            {
+                id_chats: '$00001',
+                users: ['#00001','#00002','#00003'],
+                body_chats: [
+                    {
+                        time_mess: '18:20:10 GTM+3',
+                        author: '#00002',
+                        body_mess: 'Hello guys!'
+                    },
+                ]
+            }
+        ]
     }
 };
 
