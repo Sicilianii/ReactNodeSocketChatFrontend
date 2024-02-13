@@ -6,36 +6,60 @@ const initialState = {
             id: '#00001',
             name: 'Mike',
             chats: {
-                workChat: ['$00001'],
+                userChats: [],
+                workChat: ['$_0001'],
             },
             friends: ['#00002','#00003']
         },
         {
             id: '#00002',
-            name: 'Mike',
+            name: 'John',
             chats: [],
             friends: ['#00001','#00003'],
         },
         {
             id: '#00003',
-            name: 'Mike',
+            name: 'Luice',
             chats: [],
             friends: ['#00001','#00002'],
         }
     ],
     chats: {
+        // Chats for max-2 users
         recentChats: [
-
+            {
+                id_chats: '@_0001',
+                users: ['#00001','#00002'], // max 2 users
+                body_chats: [
+                    {
+                        time_mess: '18:20:10 GTM+3',
+                        author: '#00002',
+                        body_mess: 'Hello popets!'
+                    },
+                ]
+            }
         ],
+        // WorkChats and Groupe chats (min 3 users)
         groupChats: [
             {
-                id_chats: '$00001',
-                users: ['#00001','#00002','#00003'],
+                id_chats: '$_0001',
+                nameChat: 'Work',
+                users: ['#00001','#00002','#00003'], // min 3 users
                 body_chats: [
                     {
                         time_mess: '18:20:10 GTM+3',
                         author: '#00002',
                         body_mess: 'Hello guys!'
+                    },
+                    {
+                        time_mess: '18:20:10 GTM+3',
+                        author: '#00002',
+                        body_mess: 'Hello, John'
+                    },
+                    {
+                        time_mess: '18:20:10 GTM+3',
+                        author: '#00002',
+                        body_mess: 'Hi'
                     },
                 ]
             }
