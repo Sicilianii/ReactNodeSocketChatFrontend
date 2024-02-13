@@ -1,4 +1,5 @@
 import './ChatList.css';
+import {Link} from "react-router-dom";
 
 export default function ChatList() {
     return(
@@ -10,10 +11,10 @@ export default function ChatList() {
                 </button>
                 <ul className={'list-chats'}>
                     <li className={'list-chats__item'}>
-                        <a href={'/chat/:id'}>
+                        <Link to={'/chat/:id'}>
                             Mike
                             <div className={'list-chats__count-mess'}>2</div>
-                        </a>
+                        </Link>
                     </li>
                     <li className={'list-chats__item'}>Luice
                         <div className={'list-chats__count-mess'}>2</div>
