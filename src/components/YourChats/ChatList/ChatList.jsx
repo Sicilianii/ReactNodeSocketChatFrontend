@@ -9,8 +9,11 @@ export default function ChatList() {
                     <span className={'list-group__item-arrow'}>v</span>
                 </button>
                 <ul className={'list-chats'}>
-                    <li className={'list-chats__item'}>Mike
-                        <div className={'list-chats__count-mess'}>2</div>
+                    <li className={'list-chats__item'}>
+                        <a href={'/chat/:id'}>
+                            Mike
+                            <div className={'list-chats__count-mess'}>2</div>
+                        </a>
                     </li>
                     <li className={'list-chats__item'}>Luice
                         <div className={'list-chats__count-mess'}>2</div>
