@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {getChats} from "../components/GetChats";
 
 const initialState = {
     users: [
@@ -82,12 +83,12 @@ const initialState = {
                     {
                         time_mess: '18:20:10 GTM+3',
                         author: '#00002',
-                        body_mess: 'Hello guys!'
+                        body_mess: 'Hello'
                     },
                     {
                         time_mess: '18:20:10 GTM+3',
                         author: '#00001',
-                        body_mess: 'Hello, John'
+                        body_mess: 'Hello'
                     },
                     {
                         time_mess: '18:20:10 GTM+3',
@@ -106,9 +107,18 @@ const ProfileSlice = createSlice({
     reducers: {
         addProfile: (state, action) => { console.log( state, action ) },
         editProfile: (state, action) => { console.log( state, action ) },
-        delProfile: (state, action) => { console.log( state, action ) }
+        delProfile: (state, action) => { console.log( state, action ) },
+        addMessage: (state, action) => {
+            let data = {
+                time_mess: action.payload.time_mess,
+                author: action.payload.author,
+                body_mess: action.payload.body_mess
+            }
+            let arr = getChats(state.chats ,action.payload.id);
+            return arr.push(data);
+        }
     }
 });
 
-export const {addProfile, editProfile, delProfile} = ProfileSlice.actions;
+export const {addProfile, editProfile, delProfile, addMessage} = ProfileSlice.actions;
 export const ProfileReducer = ProfileSlice.reducer;
