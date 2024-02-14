@@ -4,13 +4,8 @@ import {useSelector} from "react-redux";
 import {getChats} from "../../../../../GetChats";
 
 
-export default function ListMessages() {
-
-    let { chatId } = useParams();
-    const messages = useSelector(state => state.profile.chats);
-
-    const currentChat = getChats(messages, chatId);
-
+export default function ListMessages({list, id}) {
+    const currentChat = getChats(list, id);
     return currentChat.map( (item,id) =>
         <li key={id} > { item.body_mess } </li>
     );

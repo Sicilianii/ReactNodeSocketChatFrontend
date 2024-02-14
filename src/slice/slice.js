@@ -110,15 +110,19 @@ const ProfileSlice = createSlice({
         delProfile: (state, action) => { console.log( state, action ) },
         addMessage: (state, action) => {
             let data = {
-                time_mess: action.payload.time_mess,
-                author: action.payload.author,
-                body_mess: action.payload.body_mess
-            }
-            let arr = getChats(state.chats ,action.payload.id);
-            return arr.push(data);
+                time_mess: action.payload.currData.time_mess,
+                author: action.payload.currData.author,
+                body_mess: action.payload.currData.body_mess
+            };
+            let arr = getChats(state.chats, action.payload.id); arr.push(data);
         }
     }
 });
 
-export const {addProfile, editProfile, delProfile, addMessage} = ProfileSlice.actions;
+export const {
+    addProfile,
+    editProfile,
+    delProfile,
+    addMessage
+} = ProfileSlice.actions;
 export const ProfileReducer = ProfileSlice.reducer;
