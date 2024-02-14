@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import GetStarted from "./pages/getStarted/getStarted";
 import Home from "./pages/home/Home";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {BrowserRouter, createBrowserRouter, RouterProvider} from "react-router-dom";
 import NotFound from "./pages/e404/NotFound";
+import {Provider} from "react-redux";
+import {store} from "./store/store";
 
 
 const router = createBrowserRouter([
@@ -19,7 +21,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '',
-                element: ''
+                element: '',
+
             }
         ]
     },
@@ -29,9 +32,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <RouterProvider router={router}>
-        <Home />
-      </RouterProvider>
+      <Provider store={store}>
+          <BrowserRouter>
+            <Home />
+          </BrowserRouter>
+      </Provider>
   </React.StrictMode>
 );
 

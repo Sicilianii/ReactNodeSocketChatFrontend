@@ -1,27 +1,44 @@
 import './ChatList.css';
 import {Link} from "react-router-dom";
+import Group from "../HOC Group/Group";
+import { useSelector, useDispatch } from 'react-redux'
+
 
 export default function ChatList() {
+
+    const HOC__Chat = function (Component) {
+        return (props) => { return <Component {...props} />}
+    }
+
+    const PrivateChat = HOC__Chat(Group);
+    const GroupeChat = HOC__Chat(Group);
+
+    const dispatch= useDispatch();
+    const chatList = useSelector(state => state.profile.chats);
+
     return(
         <ul className={'list-group'}>
+
+            <li className={'list-group__item'}>
+                <button className={'list-group__btn'}>
+                    <span className={'list-group__item-name'}>Private Chat</span>
+                    <span className={'list-group__item-arrow'}>v</span>
+                </button>
+                <ul className={'list-chats'}>
+
+                    <PrivateChat props = {chatList.recentChats} />
+
+                </ul>
+            </li>
             <li className={'list-group__item'}>
                 <button className={'list-group__btn'}>
                     <span className={'list-group__item-name'}>Group Chat</span>
                     <span className={'list-group__item-arrow'}>v</span>
                 </button>
                 <ul className={'list-chats'}>
-                    <li className={'list-chats__item'}>
-                        <Link to={'/chat/:id'}>
-                            Mike
-                            <div className={'list-chats__count-mess'}>2</div>
-                        </Link>
-                    </li>
-                    <li className={'list-chats__item'}>Luice
-                        <div className={'list-chats__count-mess'}>2</div>
-                    </li>
-                    <li className={'list-chats__item'}>German
-                        <div className={'list-chats__count-mess'}>10</div>
-                    </li>
+
+                    <GroupeChat props = {chatList.groupChats} />
+
                 </ul>
             </li>
         </ul>
