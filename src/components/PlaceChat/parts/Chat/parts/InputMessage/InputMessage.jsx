@@ -7,8 +7,6 @@ import {useParams} from "react-router-dom";
 
 export default function InputMessage({id}) {
 
-    console.log(id)
-
     const [currData, setCurrData] = useState({
         time_mess: '18:13',
         author: '#00002',
@@ -18,7 +16,6 @@ export default function InputMessage({id}) {
     const dispatch = useDispatch();
     const sendChat = function (e) {
         e.preventDefault();
-        console.log(currData)
         dispatch(addMessage({currData, id}));
         // setCurrData( perv => {  return {...perv, body_mess: ''} } );
     }
