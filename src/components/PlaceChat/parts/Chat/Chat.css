@@ -6,3 +6,10 @@
     flex-direction: column;
     justify-content: flex-end;
 }
+.message__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    height: 366px;
+}

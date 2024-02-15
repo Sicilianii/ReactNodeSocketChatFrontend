@@ -3,7 +3,6 @@ import ToolButtons from "./ToolButtons/ToolButtons";
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {addMessage} from "../../../../../../slice/slice";
-import {useParams} from "react-router-dom";
 
 export default function InputMessage({id}) {
 
@@ -14,17 +13,16 @@ export default function InputMessage({id}) {
     });
 
     const dispatch = useDispatch();
+    const changeInpt = (e) => setCurrData(pervstate => ({...pervstate, body_mess: e.target.value }));
     const sendChat = function (e) {
         e.preventDefault();
         dispatch(addMessage({currData, id}));
-        // setCurrData( perv => {  return {...perv, body_mess: ''} } );
+        setCurrData( perv => {  return {...perv, body_mess: ''} } );
     }
 
     return(
         <form className={'form'} onSubmit={ event =>  sendChat( event ) }>
-            <input placeholder={'Type your message here...'} className={'form__textarea'} onChange={(event) =>
-            {  setCurrData(pervstate => ({...pervstate, body_mess: event.target.value })); }
-            }/>
+            <input placeholder={'Type your message here...'} className={'form__textarea'} onChange={ (event)=> changeInpt(event) } value={currData.body_mess}/>
             <ToolButtons />
         </form>
     );

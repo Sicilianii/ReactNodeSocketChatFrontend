@@ -5,7 +5,7 @@ const initialState = {
     users: [
         {
             id: '#00001',
-            name: 'Mike',
+            nameUser: 'Mike',
             chats: {
                 userChats: [],
                 workChat: ['$_0001'],
@@ -14,13 +14,13 @@ const initialState = {
         },
         {
             id: '#00002',
-            name: 'John',
+            nameUser: 'John',
             chats: [],
             friends: ['#00001','#00003'],
         },
         {
             id: '#00003',
-            name: 'Luice',
+            nameUser: 'Luice',
             chats: [],
             friends: ['#00001','#00002'],
         }
@@ -59,17 +59,17 @@ const initialState = {
                 users: ['#00001','#00002','#00003'], // min 3 users
                 body_chats: [
                     {
-                        time_mess: '18:20:10 GTM+3',
+                        time_mess: '18:20',
                         author: '#00002',
                         body_mess: 'Hello guys!'
                     },
                     {
-                        time_mess: '18:20:10 GTM+3',
+                        time_mess: '18:21',
                         author: '#00001',
                         body_mess: 'Hello, John'
                     },
                     {
-                        time_mess: '18:20:10 GTM+3',
+                        time_mess: '18:24',
                         author: '#00003',
                         body_mess: 'Hi'
                     },
@@ -81,17 +81,17 @@ const initialState = {
                 users: ['#00001','#00002','#00003'], // min 3 users
                 body_chats: [
                     {
-                        time_mess: '18:20:10 GTM+3',
+                        time_mess: '12:20',
                         author: '#00002',
                         body_mess: 'Hello'
                     },
                     {
-                        time_mess: '18:20:10 GTM+3',
+                        time_mess: '13:20',
                         author: '#00001',
                         body_mess: 'Hello'
                     },
                     {
-                        time_mess: '18:20:10 GTM+3',
+                        time_mess: '13:25',
                         author: '#00003',
                         body_mess: 'Hi'
                     },
