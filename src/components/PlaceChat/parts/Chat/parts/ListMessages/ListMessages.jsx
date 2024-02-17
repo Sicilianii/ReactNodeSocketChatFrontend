@@ -7,10 +7,10 @@ import {logDOM} from "@testing-library/react";
 export default function ListMessages({store, id}) {
 
     const currentChat = getChats(store.chats, id);
-    const getUser =  (data, idUser) => { return  data.find( el => el.id === idUser ); }
+    const getUser =  (data, idUser) => { return data.find( el => el.id === idUser ); }
 
     return (
-        <ul className={'message__list'}> {
+        <ul className={'message__list'} id='chat'> {
             currentChat.map( (item,id) =>
 
                 <li key={id} className={'message'}>

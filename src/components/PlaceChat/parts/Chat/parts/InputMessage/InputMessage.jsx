@@ -25,8 +25,8 @@ export default function InputMessage({id}) {
     const changeInpt = (e) => setCurrData(pervstate => ({...pervstate, message: [{time_mess: GET_TIME(), body_mess: e.target.value }]}));
     const sendChat = function (e) {
         e.preventDefault();
-        dispatch(addMessage({currData, id}));
-        setCurrData( perv => ({...perv, message: [{time_mess: '18:32', body_mess: '' }]}));
+        (currData.message[0].body_mess !== '') && dispatch(addMessage( { currData, id } ));
+        setCurrData( perv => ({...perv, message: [ { time_mess: '18:32', body_mess: '' } ] }));
     }
 
     return(
