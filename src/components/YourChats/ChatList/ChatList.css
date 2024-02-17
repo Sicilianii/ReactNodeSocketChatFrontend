@@ -63,7 +63,7 @@
     cursor: pointer;
 }
 .list-chats__item:hover {
-    background: #8f0def;
+    background: #434343;;
     transition: all 500ms;
 }
 .list-chats__item:hover .list-chats__count-mess {color: #8f0def;transition: all 500ms;}

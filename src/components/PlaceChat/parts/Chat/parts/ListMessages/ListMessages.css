@@ -1,9 +1,101 @@
+.message__list, .message__body-text {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.message__body-text {gap: 2px; margin-top: 5px}
+.message__list {padding-bottom: 24px; box-sizing: border-box}
 .message {
-
+    display: flex;
+    gap: 10px;
 }
-.chat-place__list-item-img {
-
+.message__img-prof {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    background-image: url("img/user1.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
 }
-.chat-place__list-item-mess {
-
+.message__img-prof::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 13px;
+    height: 13px;
+    border-radius: 30px;
+    background-color: #8f0def;
+    bottom: -4px;
+    right: -2px;
+    border: 2px solid #161616;
+}
+.message__body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.message__body-head {
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+}
+.message__body-head-name {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: none;
+    text-align: left;
+    letter-spacing: 0;
+    line-height: 20px;
+    white-space: pre-line;
+    word-break: break-word;
+    visibility: visible;
+    color: #ffffffff;
+}
+.message__body-head-time {
+    font-size: 14px;
+    font-weight: 200;
+    text-transform: none;
+    text-align: left;
+    letter-spacing: 0;
+    line-height: 20px;
+    white-space: pre-line;
+    word-break: break-word;
+    width: fit-content;
+    display: inline-block;
+}
+.message__body-text-item-p {
+    font-size: 14px;
+    font-weight: 200;
+    text-transform: none;
+    text-align: left;
+    letter-spacing: 0;
+    line-height: 20px;
+    white-space: pre-line;
+    word-break: break-word;
+    width: 100%;
+    display: inline-block;
+}
+.message__body-text-item {width: 100%;display: flex;gap: 5px;}
+.message__body-text-item-time {
+    width: 50px;
+    font-size: 11px;
+    font-weight: 200;
+    text-transform: none;
+    text-align: left;
+    letter-spacing: 0;
+    line-height: 20px;
+    white-space: pre-line;
+    word-break: break-word;
+    visibility: hidden;
+    display: flex;
+    max-width: 200px;
+}
+.message__body-text-item:hover .message__body-text-item-time {
+    visibility: visible;
 }

@@ -1,13 +1,12 @@
 export default function Message({listMess}) {
-    console.log(listMess)
     return (
         <ul className={'message__body-text'}>
 
             { listMess.map((item, id) =>
 
-                <li key={id}>
-                    <span> {item.body_mess} </span>
-                    <span> {item.time_mess} </span>
+                <li className={'message__body-text-item'} key={id}>
+                    <span className={'message__body-text-item-p'}> {item.body_mess} </span>
+                    <span className={'message__body-text-item-time'}> {item.time_mess} </span>
                 </li>
 
             )}
