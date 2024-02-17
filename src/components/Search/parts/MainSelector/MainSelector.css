@@ -6,4 +6,6 @@
     align-items: center;
     color: white;
     font-weight: 600;
+    width: 280px;
+    min-width: 280px;
 }

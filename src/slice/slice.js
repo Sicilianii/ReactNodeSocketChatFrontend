@@ -48,7 +48,6 @@ const initialState = {
                 users: ['#00003','#00002'], // max 2 users
                 body_chats: [
                     {
-
                         author: '#00002',
                         message: [
                             {

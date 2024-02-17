@@ -11,7 +11,7 @@
 .search__form-inpt {
     top: 16px;
     left: 400px;
-    width: 1030px;
+    width: 100%;
     height: 46px;
     padding: 0px 60px;
     border: 0;
