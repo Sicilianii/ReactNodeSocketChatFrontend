@@ -1,6 +1,8 @@
 import './ListMessages.css';
 import {getChats} from "../../../../../GetChats";
 import {Link} from "react-router-dom";
+import Message from "./Message/Message";
+import {logDOM} from "@testing-library/react";
 
 export default function ListMessages({store, id}) {
 
@@ -18,7 +20,9 @@ export default function ListMessages({store, id}) {
                     </Link>
                     <span className={'message__body-head-time'}> { item.time_mess }</span>
                 </span>
-                <p className={'message__body-text'}>{ item.body_mess }</p>
+                <ul className={'message__body-text'}>
+                    <Message listMess={ item.message } />
+                </ul>
             </div>
         </li>
     );

@@ -33,9 +33,13 @@ const initialState = {
                 users: ['#00001','#00002'], // max 2 users
                 body_chats: [
                     {
-                        time_mess: '18:20:10 GTM+3',
                         author: '#00002',
-                        body_mess: 'Hello popets!'
+                        message: [
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hello, moppets'
+                            }
+                        ]
                     },
                 ]
             },
@@ -44,9 +48,14 @@ const initialState = {
                 users: ['#00003','#00002'], // max 2 users
                 body_chats: [
                     {
-                        time_mess: '18:20:10 GTM+3',
+
                         author: '#00002',
-                        body_mess: 'Hello popets!'
+                        message: [
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hello, poppets'
+                            }
+                        ]
                     },
                 ]
             }
@@ -59,19 +68,31 @@ const initialState = {
                 users: ['#00001','#00002','#00003'], // min 3 users
                 body_chats: [
                     {
-                        time_mess: '18:20',
                         author: '#00002',
-                        body_mess: 'Hello guys!'
+                        message: [
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hello, guys'
+                            }
+                        ]
                     },
                     {
-                        time_mess: '18:21',
                         author: '#00001',
-                        body_mess: 'Hello, John'
+                        message: [
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hello, John'
+                            }
+                        ]
                     },
                     {
-                        time_mess: '18:24',
                         author: '#00003',
-                        body_mess: 'Hi'
+                        message: [
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hi'
+                            }
+                        ]
                     },
                 ]
             },
@@ -81,19 +102,31 @@ const initialState = {
                 users: ['#00001','#00002','#00003'], // min 3 users
                 body_chats: [
                     {
-                        time_mess: '12:20',
                         author: '#00002',
-                        body_mess: 'Hello'
+                        message: [
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hello, guys'
+                            }
+                        ]
                     },
                     {
-                        time_mess: '13:20',
                         author: '#00001',
-                        body_mess: 'Hello'
+                        message: [
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hello'
+                            }
+                        ]
                     },
                     {
-                        time_mess: '13:25',
                         author: '#00003',
-                        body_mess: 'Hi'
+                        message: [
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hi'
+                            }
+                        ]
                     },
                 ]
             }
@@ -109,10 +142,16 @@ const ProfileSlice = createSlice({
         editProfile: (state, action) => { console.log( state, action ) },
         delProfile: (state, action) => { console.log( state, action ) },
         addMessage: (state, action) => {
+            let DATA = action.payload.currData;
+            console.log(DATA)
             let data = {
-                time_mess: action.payload.currData.time_mess,
-                author: action.payload.currData.author,
-                body_mess: action.payload.currData.body_mess
+                author: DATA.author,
+                message: [
+                    {
+                        time_mess: DATA.time_mess,
+                        body_mess: DATA.body_mess,
+                    }
+                ]
             };
             let arr = getChats(state.chats, action.payload.id); arr.push(data);
         }
