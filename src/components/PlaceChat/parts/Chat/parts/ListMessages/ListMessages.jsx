@@ -20,9 +20,7 @@ export default function ListMessages({store, id}) {
                     </Link>
                     <span className={'message__body-head-time'}> { item.time_mess }</span>
                 </span>
-                <ul className={'message__body-text'}>
-                    <Message listMess={ item.message } />
-                </ul>
+                <Message listMess={ item.message } />
             </div>
         </li>
     );

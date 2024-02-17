@@ -107,6 +107,14 @@ const initialState = {
                             {
                                 time_mess: '12:20',
                                 body_mess: 'Hello, guys'
+                            },
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hello, guys'
+                            },
+                            {
+                                time_mess: '12:20',
+                                body_mess: 'Hello, guys'
                             }
                         ]
                     },
@@ -141,19 +149,11 @@ const ProfileSlice = createSlice({
         addProfile: (state, action) => { console.log( state, action ) },
         editProfile: (state, action) => { console.log( state, action ) },
         delProfile: (state, action) => { console.log( state, action ) },
+
         addMessage: (state, action) => {
             let DATA = action.payload.currData;
-            console.log(DATA)
-            let data = {
-                author: DATA.author,
-                message: [
-                    {
-                        time_mess: DATA.time_mess,
-                        body_mess: DATA.body_mess,
-                    }
-                ]
-            };
-            let arr = getChats(state.chats, action.payload.id); arr.push(data);
+            let arr = getChats(state.chats, action.payload.id);
+            if (arr.at(-1).author === DATA.author) {arr.at(-1).message.push(DATA.message.at(-1))} else {arr.push(DATA)}
         }
     }
 });
