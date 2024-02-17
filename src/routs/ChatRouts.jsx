@@ -1,5 +1,4 @@
-import {Route, Routes, useParams} from "react-router-dom";
-import ListMessages from "../components/PlaceChat/parts/Chat/parts/ListMessages/ListMessages";
+import {Route, Routes} from "react-router-dom";
 import Chat from "../components/PlaceChat/parts/Chat/Chat";
 
 export default function ChatRouter() {
