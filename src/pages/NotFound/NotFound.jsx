@@ -1,5 +1,5 @@
 import './NotFound.css';
-import GetStarted from "../getStarted/getStarted";
+import GetStarted from "../GetStarted/getStarted";
 
 export default function NotFound() {
 

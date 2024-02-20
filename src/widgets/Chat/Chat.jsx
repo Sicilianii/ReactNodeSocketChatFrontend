@@ -1,6 +1,5 @@
 import './Chat.css';
-import InputMessage from "./parts/InputMessage/InputMessage";
-import ListMessages from "./parts/ListMessages/ListMessages";
+
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {useEffect} from "react";

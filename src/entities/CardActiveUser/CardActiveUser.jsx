@@ -1,5 +1,5 @@
 import './CardActiveUser.css';
-import BottomButtonsUser from "./parts/BottomButtonsUser";
+import BottomButtonsUser from "./ui/BottomButtonsUser";
 
 export default function CardActiveUser() {
     return (
