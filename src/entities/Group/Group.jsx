@@ -1,9 +1,10 @@
 import './Group.css';
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {getUsers} from "../../GetUser";
+import {getUsers} from "../../shared/lib/helpers/GetUser";
 
-export default function Group({props}) {
+
+export default function Group__entities({props}) {
 
     const list = [...props];
     const users = useSelector(state => state.profile.users);

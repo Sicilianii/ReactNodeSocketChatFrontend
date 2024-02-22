@@ -1,8 +1,8 @@
 import './Search.css';
-import SearchForm from "./parts/SearchForm/SearchForm";
-import MainSelector from "./parts/MainSelector/MainSelector";
+import SearchForm from "../../shared/ui/SearchForm/SearchForm";
+import MainSelector from "./ui/MainSelector/MainSelector";
 
-export default function Search() {
+export default function Search__widget() {
     return(
         <div className={'search'}>
             <MainSelector />

@@ -1,6 +1,6 @@
 import './AddNewChat.css';
 
-export default function AddNewChat() {
+export default function AddNewChat__features() {
     return(
         <button className={'add-chat-btn'}>
             <svg className={'add-chat-btn__svg'} viewBox="0 0 512 512">

@@ -1,7 +1,8 @@
 import './CardActiveUser.css';
-import BottomButtonsUser from "./ui/BottomButtonsUser";
+import BottomButtonsUser from "../BottomButtonsUser/BottomButtonsUser";
 
-export default function CardActiveUser() {
+
+export default function CardActiveUser__entities() {
     return (
         <article className={'user'}>
             <button className={'user__close-info'}>

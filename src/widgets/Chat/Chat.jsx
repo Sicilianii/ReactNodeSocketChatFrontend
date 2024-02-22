@@ -3,6 +3,8 @@ import './Chat.css';
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {useEffect} from "react";
+import ListMessages from "./ui/ListMessages/ListMessages";
+import InputMessage from "../../features/InputMessage/InputMessage";
 
 export default function Chat() {
 

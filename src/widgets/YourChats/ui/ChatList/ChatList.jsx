@@ -1,7 +1,8 @@
 import './ChatList.css';
-import {Link} from "react-router-dom";
-import Group from "../HOC Group/Group";
 import { useSelector, useDispatch } from 'react-redux'
+import Group__entities from "../../../../entities/Group/Group";
+
+
 
 
 export default function ChatList() {
@@ -10,8 +11,8 @@ export default function ChatList() {
         return (props) => { return <Component {...props} />}
     }
 
-    const PrivateChat = HOC__Chat(Group);
-    const GroupeChat = HOC__Chat(Group);
+    const PrivateChat = HOC__Chat(Group__entities);
+    const GroupeChat = HOC__Chat(Group__entities);
 
     const dispatch= useDispatch();
     const chatList = useSelector(state => state.profile.chats);
@@ -30,6 +31,7 @@ export default function ChatList() {
 
                 </ul>
             </li>
+
             <li className={'list-group__item'}>
                 <button className={'list-group__btn'}>
                     <span className={'list-group__item-name'}>Group Chat</span>
@@ -41,6 +43,7 @@ export default function ChatList() {
 
                 </ul>
             </li>
+
         </ul>
     );
 }
