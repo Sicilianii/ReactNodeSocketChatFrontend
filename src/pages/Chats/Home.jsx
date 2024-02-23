@@ -2,12 +2,12 @@ import './Home.css';
 
 import YourChats__widget from "../../widgets/YourChats/YourChats";
 import Search__widget from "../../widgets/Search/Search";
-import Navigation__widget from "../../widgets/Navigation/Navigation";
+
 import ChatRouter from "../../app/routs/ChatRouts";
 
 import TopBarActiveUser__widget from "../../widgets/TopBarActiveUser/TopBarActiveUser";
 import CardActiveUser__entities from "../../entities/CardActiveUser/CardActiveUser";
-
+import Navigation__widget from "../../widgets/Navigation/Navigation";
 
 
 export default function Home() {
