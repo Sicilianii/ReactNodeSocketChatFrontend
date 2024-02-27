@@ -25,40 +25,11 @@ server.listen(3000, () => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-// app.get('/group', (req, res) => {
-//     const users = [];
-//     getGroupChatsCollections().find().forEach( (user) => { users.push(user) } ).then( () => {
-//         res.status(200).json(users);
-//     }).catch( (err) => handleError(res, 'Vse Ploho') )
-// })
-// app.get('/recent', (req, res) => {
-//     const users = [];
-//     getRecentChatsCollections().find().forEach( (user) => { users.push(user) } ).then( () => {
-//         res.status(200).json(users);
-//     }).catch( (err) => handleError(res, 'Vse Ploho') )
-// })
-
-
-
-
-
 app.get('/', (req, res) => {
     res.sendFile(join(__dirname, 'index.html'));
 });
+
+
 
 io.on('connection', (socket) => {
     console.log('a user connect');

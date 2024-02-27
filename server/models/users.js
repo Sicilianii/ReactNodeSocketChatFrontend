@@ -11,8 +11,8 @@ const usersSchema = new Schema({
         require: true
     },
     chats: {
-        userChats: [String],
-        workChat: [String]
+        recentChats: [String],
+        groupChats: [String]
     },
     friends: [String]
 });
