@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 
-
 const Schema = mongoose.Schema;
-const recentChatSchema = new Schema({
+
+const groupChatSchema = new Schema({
     id: {
         type: String,
         require: true
     },
+    id_chats: String,
+    nameChat: String,
     users: [{
         type: String,
         require: true
@@ -17,6 +19,6 @@ const recentChatSchema = new Schema({
     }
 });
 
-const RecentChat = mongoose.model('recentChat', recentChatSchema);
+const GroupChat = mongoose.model('recentChat', groupChatSchema);
 
-module.exports = RecentChat;
+module.exports = GroupChat;

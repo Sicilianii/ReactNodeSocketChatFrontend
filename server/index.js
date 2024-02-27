@@ -1,13 +1,15 @@
 const express = require('express');
 const { createServer } = require('node:http');
-const { join } = require('node:path');
 const { Server } = require('socket.io');
 const mongoose = require('mongoose');
-const userRouter = require('./routes/user-routes')
+const userRouter = require('./routes/user-routes');
+const mainRouter = require('./routes/main-routes');
+
 
 const app = express();
 app.use(express.json());
 app.use(userRouter);
+app.use(mainRouter);
 
 
 const server = createServer(app);
@@ -22,11 +24,6 @@ mongoose.connect(URL)
 
 server.listen(3000, () => {
     console.log('index listen 3000 port ...')
-});
-
-
-app.get('/', (req, res) => {
-    res.sendFile(join(__dirname, 'index.html'));
 });
 
 
