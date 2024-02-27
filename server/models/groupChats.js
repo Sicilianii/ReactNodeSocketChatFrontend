@@ -4,21 +4,21 @@ const Schema = mongoose.Schema;
 
 const groupChatSchema = new Schema({
     id: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         require: true
     },
     id_chats: String,
     nameChat: String,
     users: [{
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         require: true
     }],
     body_chats: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         require: true
     }
 });
 
-const GroupChat = mongoose.model('recentChat', groupChatSchema);
+const GroupChat = mongoose.model('group', groupChatSchema);
 
 module.exports = GroupChat;

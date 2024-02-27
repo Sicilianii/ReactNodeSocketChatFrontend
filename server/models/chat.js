@@ -4,13 +4,13 @@ const Schema =  mongoose.Schema;
 
 const chatSchema = new Schema({
     id: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         require: true
     },
     body_chats: [
         {
             id: {
-                type: String,
+                type: mongoose.Schema.Types.ObjectId,
                 require: true
             },
             time_mess: {

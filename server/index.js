@@ -4,12 +4,16 @@ const { Server } = require('socket.io');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/user-routes');
 const mainRouter = require('./routes/main-routes');
+const groupRouter = require('./routes/groupChats-routes');
+const recentRouter = require('./routes/recentChat-routes');
 
 
 const app = express();
 app.use(express.json());
 app.use(userRouter);
 app.use(mainRouter);
+app.use(groupRouter);
+app.use(recentRouter);
 
 
 const server = createServer(app);
