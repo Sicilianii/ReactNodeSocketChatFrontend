@@ -3,7 +3,7 @@ const {getAllRecentChat} = require("../controllers/recentChat-controllers");
 
 const router = express.Router();
 
-router.get('/recents', getAllRecentChat);
+router.get('/recents', getAllRecentChat); // получаем все чаты пользователя
 
 module.exports = router;
 
