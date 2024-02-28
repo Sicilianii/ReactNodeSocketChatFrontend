@@ -1,6 +1,6 @@
 const express = require('express');
 const { join } = require('node:path');
-const { getAllChats } = require('../controllers/main-controllers');
+const { getAllChats, getFullInfo } = require('../controllers/main-controllers');
 const { getMessagesRecentChat, getMessagesGroupChat } = require('../controllers/messages-controllers')
 
 const router = express.Router();
@@ -9,7 +9,9 @@ router.get('/', (req, res) => {
     res.sendFile(join(__dirname, '..', 'index.html'));
 });
 
-router.get('/chats', getAllChats);
+router.get('/root', getFullInfo);
+
+// router.get('/chats', getAllChats);
 
 router.get('/chats/recent/:id', getMessagesRecentChat);
 

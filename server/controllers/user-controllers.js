@@ -1,5 +1,4 @@
 const User = require("../models/users");
-const {json} = require("express");
 
 const handleError = (res, err) => { res.status(500).json( {error: `${err}`} )}
 
