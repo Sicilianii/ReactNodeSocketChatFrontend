@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {getChats} from "../../shared/lib/helpers/GetChats";
 
 
 const initialState = {

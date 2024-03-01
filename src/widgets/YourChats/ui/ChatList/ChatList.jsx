@@ -2,9 +2,6 @@ import './ChatList.css';
 import { useSelector, useDispatch } from 'react-redux'
 import Group__entities from "../../../../entities/Group/Group";
 
-
-
-
 export default function ChatList() {
 
     const HOC__Chat = function (Component) {

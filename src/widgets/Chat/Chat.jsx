@@ -1,4 +1,4 @@
-import './Chat.css';
+import './styles/Chat.css';
 
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";

@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import React from "react";
 import GetStarted from "../pages/GetStarted/getStarted";
 import NotFound from "../pages/NotFound/NotFound";
+import {STORE} from "./store/store";
 
 export default function App() {
 
@@ -26,7 +27,7 @@ export default function App() {
     ]);
 
     return (
-        <Provider store={ store }>
+        <Provider store={ STORE }>
             <BrowserRouter>
                 <Home />
             </BrowserRouter>

@@ -1,8 +1,10 @@
 import './InputMessage.css';
-import ToolButtons from "./ToolButtons/ToolButtons";
+
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import {addMessage} from "../../../../../../slice/slice";
+
+import ToolButtons from "../../entities/ToolButtons/ToolButtons";
+import {addMessage} from "../../app/slice/slice";
 
 export default function InputMessage({id}) {
 

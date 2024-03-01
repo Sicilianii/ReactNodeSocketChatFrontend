@@ -1,7 +1,8 @@
 import './ListMessages.css';
-import {getChats} from "../../../../../GetChats";
 import {Link} from "react-router-dom";
-import Message from "./Message/Message";
+import Message from "../../../../entities/Message/Message";
+import {getChats} from "../../../../shared/lib/helpers/GetChats";
+
 
 export default function ListMessages({store, id}) {
 
