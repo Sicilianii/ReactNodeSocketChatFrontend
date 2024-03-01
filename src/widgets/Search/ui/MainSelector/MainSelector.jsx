@@ -1,4 +1,4 @@
-import './MainSelector.css';
+
 
 export default function MainSelector() {
     return(

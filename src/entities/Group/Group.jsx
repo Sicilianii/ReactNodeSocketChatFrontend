@@ -1,4 +1,4 @@
-import './Group.css';
+
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {getUsers} from "../../shared/lib/helpers/GetUser";

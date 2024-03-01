@@ -1,4 +1,4 @@
-import './CallButtons.css';
+
 import PhoneCall from "../../shared/ui/PhoneCall/PhoneCall";
 import VideoCall from "../../shared/ui/VideoCall/VideoCall";
 

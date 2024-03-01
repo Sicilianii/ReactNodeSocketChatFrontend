@@ -1,4 +1,4 @@
-import './ListMessages.css';
+
 import {Link} from "react-router-dom";
 import Message from "../../../../entities/Message/Message";
 import {getChats} from "../../../../shared/lib/helpers/GetChats";

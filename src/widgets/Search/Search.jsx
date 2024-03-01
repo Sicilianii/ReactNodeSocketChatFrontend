@@ -1,4 +1,4 @@
-import './Search.css';
+
 import SearchForm from "../../shared/ui/SearchForm/SearchForm";
 import MainSelector from "./ui/MainSelector/MainSelector";
 

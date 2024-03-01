@@ -1,4 +1,4 @@
-import './TopBarActiveUser.css';
+
 import CallButtons from "../../entities/CallButtons/CallButtons";
 
 export default function TopBarActiveUser__widget() {
