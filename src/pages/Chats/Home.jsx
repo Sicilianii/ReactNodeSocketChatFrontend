@@ -12,7 +12,7 @@ export default function Home() {
     return(
         <main className={'main container'}>
             <Navigation__widget />
-            <div>
+            <div className={'page-wrapper'}>
                 <Search__widget />
                 <div className={'main-place__chats'}>
                     <YourChats__widget />

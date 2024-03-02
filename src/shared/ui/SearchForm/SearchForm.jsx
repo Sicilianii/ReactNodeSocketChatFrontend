@@ -2,10 +2,10 @@
 
 export default function SearchForm() {
     return (
-        <form className={'search__form'}>
-            <input type="text" id={'search'} placeholder={'Search for users'} className={'search__form-inpt'}/>
-            <button className={'search__form-btn'} type={'submit'}>
-                <svg viewBox="0 0 16 16" width="16" height="16" fill="none">
+        <form className={'search-form'}>
+            <input type="text" id={'search'} placeholder={'Search for users'} className={'search-form__inpt'}/>
+            <button className={'search-form__btn'} type={'submit'}>
+                <svg className={'search-form__btn-svg'} viewBox="0 0 16 16" width="16" height="16" fill="none">
                     <svg viewBox="0 0 512 512" width="16" height="16" fill="#fff"
                          x="0" y="0" opacity="100%">
                         <path
