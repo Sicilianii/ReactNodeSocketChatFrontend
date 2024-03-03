@@ -380,7 +380,7 @@ body {
   transition: all 300ms;
 }
 .search-selector__heading {
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: bold;
 }
 .search-selector:hover .search-selector__svg {
@@ -423,5 +423,12 @@ body {
 }
 
 /* END SEARCH WIDGET */
+/* START WRAPPER CHAT */
+.chat-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* END WRAPPER CHAT */
 
 /*# sourceMappingURL=index.css.map */

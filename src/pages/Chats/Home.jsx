@@ -14,7 +14,7 @@ export default function Home() {
             <Navigation__widget />
             <div className={'page-wrapper'}>
                 <Search__widget />
-                <div className={'main-place__chats'}>
+                <div className={'chat-wrapper'}>
                     <YourChats__widget />
                     <div className={'place-chat-col'}>
                         <TopBarActiveUser__widget />
