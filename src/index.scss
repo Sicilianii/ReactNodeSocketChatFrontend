@@ -1,5 +1,6 @@
-@import './imports';
 @import './variables';
+@import './imports';
+
 
 body {
   font-family: "Calibri Light";
@@ -14,8 +15,9 @@ body {
   display: flex;
   width: 100%;
   overflow: auto;
-  height: 100%;
+  //height: 100%;
   padding: 0;
+  height: 700px;
 }
 .page-wrapper {
   display: flex;
@@ -83,7 +85,7 @@ body {
     }
 
     &:hover &__svg {
-      transform: rotateX(180deg);
+      transform: rotateZ(180deg);
       transition: all 300ms;
     }
   }
@@ -130,5 +132,118 @@ body {
 .chat-wrapper {
   display: flex;
   justify-content: flex-start;
+  height: 100%;
 }
 /* END WRAPPER CHAT */
+
+
+/* START CHAT NAVIGATION */
+.nav-chats {
+  display: flex;
+  flex-direction: column;
+  min-width: 225px;
+  background: $main-color-gray;
+
+  &__heading {
+    padding: 20px;
+    box-sizing: border-box;
+    color: $main-color-white;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+}
+.chat-list {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  height: fit-content;
+  width: 100%;
+
+  &__item {
+
+
+    &-btn {
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid $main-color-gray-light;
+      border-top: 1px solid $main-color-gray-light;
+      border-right: none;
+      border-left: none;
+      width: 100%;
+      text-align: left;
+      padding: 15px 20px 15px 40px;
+      color: $main-color-white;
+      box-sizing: border-box;
+      position: relative;
+      transition: all 300ms;
+      cursor: pointer;
+
+      &-name {
+        color: $main-color-white;
+        font-weight: bold;
+      }
+
+      &:hover &-svg  {
+        transform: rotateZ(180deg);
+        transition: all 300ms;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        background: $main-color-white;
+        border-radius: 24px;
+        top: 20px;
+        left: 20px;
+      }
+    }
+  }
+}
+
+.list-chats {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &__item {
+    padding: 15px 20px 15px 40px;
+    box-sizing: border-box;
+    transition: all 500ms;
+
+    &:hover {
+      background: $main-color-purple;
+      transition: all 500ms;
+      cursor: pointer;
+    }
+
+    &-link {
+      display: flex;
+      justify-content: space-between;
+      text-decoration: none;
+    }
+
+    &-name {
+      color: $main-color-white;
+    }
+
+    &-count {
+      display: block;
+      border-radius: 15px;
+      background: $main-color-white;
+      width: fit-content;
+      padding: 0 12px;
+      box-sizing: border-box;
+    }
+  }
+}
+/* END CHAT NAVIGATION */

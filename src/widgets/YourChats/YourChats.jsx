@@ -5,9 +5,9 @@ import ChatList from "./ui/ChatList/ChatList";
 
 export default function YourChats__widget() {
     return (
-        <div className={'navigation'}>
-            <span className={'navigation__heading'}>Your Chats</span>
-            <div className={'navigation-list'}>
+        <div className={'nav-chats'}>
+            <span className={'nav-chats__heading'}>Your Chats</span>
+            <div className={'nav-chats__wrapper'}>
                 <ChatList />
                 <AddNewChat__features />
             </div>

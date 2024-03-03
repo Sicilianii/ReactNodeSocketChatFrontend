@@ -11,9 +11,11 @@ export default function Group__entities({props}) {
 
     return list.map( (item, id) =>
             <li className={'list-chats__item'} key={id}>
-                <Link to={`/chat/${item.id_chats}`}>
-                    {item.nameChat ? item.nameChat : getUsers(users, item.users[0])}
-                    <div className={'list-chats__count-mess'}>{item.body_chats.length}</div>
+                <Link to={`/chat/${item.id_chats}`} className={'list-chats__item-link'}>
+                    <span className={'list-chats__item-name'}>
+                        {item.nameChat ? item.nameChat : getUsers(users, item.users[0])}
+                    </span>
+                    <div className={'list-chats__item-count'}>{item.body_chats.length}</div>
                 </Link>
             </li>
     );
