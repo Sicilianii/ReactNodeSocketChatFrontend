@@ -1,10 +1,13 @@
+import UserNetworkStatus__shared from "../../shared/ui/UserNetworkStatus/UserNetworkStatus";
+import UserName__shared from "../../shared/ui/UserName/UserName";
+import UserPhotoProfileBIG__shared from "../../shared/ui/UserPhotoProfileBIG/UserPhotoProfileBIG";
 
 
 export default function CardActiveUser__entities() {
     return (
         <article className={'user'}>
-            <button className={'user__close-info'}>
-                <svg viewBox="0 0 16 16"
+            <button className={'user__close'}>
+                <svg className={'user__close-svg'} viewBox="0 0 16 16"
                      width="16" height="16" fill="none">
                     <svg viewBox="0 0 352 512" width="16" height="16" fill="#fff"
                          x="0" y="0" opacity="100%">
@@ -13,9 +16,11 @@ export default function CardActiveUser__entities() {
                     </svg>
                 </svg>
             </button>
-            <div className={'user__image'}></div>
-            <span className={'user__name'}>Zofiya</span>
-            <span className={'user__status'}>Online now</span>
+            <UserPhotoProfileBIG__shared />
+            <div className={'user-wrapper'}>
+                <UserName__shared />
+                <UserNetworkStatus__shared />
+            </div>
             <div className={'user__buttons'}>
                 <button className={'user__buttons-btn'}>
                     <svg viewBox="0 0 512 512" width="14" height="14" fill="#fff"

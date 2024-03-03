@@ -17,7 +17,7 @@ export default function Chat() {
     },[messages])
 
     return(
-        <div className={'chat-place'}>
+        <div className={'chat'}>
             <ListMessages store={messages} id={chatId} />
             <InputMessage id={chatId} />
         </div>

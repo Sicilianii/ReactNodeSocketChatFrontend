@@ -4,7 +4,7 @@ import VideoCall from "../../shared/ui/VideoCall/VideoCall";
 
 export default function CallButtons() {
     return(
-        <div className={'box-button'}>
+        <div className={'top-bar__wrapper'}>
             <PhoneCall />
             <VideoCall />
         </div>

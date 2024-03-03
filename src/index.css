@@ -444,6 +444,7 @@ body {
   background: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 /* END SEARCH WIDGET */
@@ -548,5 +549,150 @@ body {
 }
 
 /* END CHAT NAVIGATION */
+.place-chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* START TOP BAR ACTIVE USER */
+.top-bar {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  padding: 20px 15px 20px 30px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(22, 22, 22);
+  border-bottom: 1px solid rgb(49, 49, 49);
+}
+.top-bar__user {
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  font-size: 24px;
+  position: relative;
+}
+.top-bar__user::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: rgb(255, 255, 255);
+  position: absolute;
+  top: 8px;
+  right: -40px;
+  border-radius: 24px;
+}
+.top-bar__wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+/* END TOP BAR ACTIVE USER */
+/* START ENTITIES PHONE CALL */
+.phone-call {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* END ENTITIES PHONE CALL */
+/* START ENTITIES PHONE CALL */
+.video-call {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* END ENTITIES PHONE CALL */
+.place-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+/* START USER ACTIVE CART */
+.user {
+  height: 100%;
+  width: 250px;
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+  flex-direction: column;
+  padding: 40px 15px 20px 20px;
+  border-left: 1px solid rgb(49, 49, 49);
+  background: rgb(22, 22, 22);
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.user-wrapper {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user__close {
+  position: absolute;
+  padding: 0;
+  top: 20px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+}
+.user__close-svg {
+  margin: 0;
+}
+
+/* END USER ACTIVE CART */
+/* START USER PHOTO PROFILE ENTITIES */
+.user-image {
+  background-image: url("./shared/assets/img/user1.png");
+  width: 150px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* END USER PHOTO PROFILE ENTITIES */
+/* START USER NETWORK STATUS ENTITIES */
+.user-net-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.user-net-status__marker {
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: rgb(255, 255, 255);
+  border-radius: 24px;
+}
+.user-net-status__des {
+  color: rgb(255, 255, 255);
+}
+
+/* END USER NETWORK STATUS ENTITIES */
+/* START USER NAME ENTITIES */
+.user-name {
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  font-size: 24px;
+}
+
+/* END USER NAME ENTITIES */
 
 /*# sourceMappingURL=index.css.map */
