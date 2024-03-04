@@ -321,7 +321,7 @@ body {
 /* START USER ACTIVE CART */
 .user{
   height: 100%;
-  width: 250px;
+  min-width: 280px;
   display: flex;
   box-sizing: border-box;
   position: relative;
@@ -353,6 +353,48 @@ body {
     cursor: pointer;
     &-svg {
       margin: 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    &-btn {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      width: 30px;
+      height: 30px;
+      border: none;
+      outline: none;
+      border-radius: 30px;
+      background-color: $main-color-purple;
+    }
+  }
+
+  &__info {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      &-name, &-val {
+        font-size: 14px;
+        color: $main-color-white;
+      }
+
     }
   }
 
@@ -388,6 +430,8 @@ body {
   &__des {
     color: $main-color-white;
   }
+
+
 }
 /* END USER NETWORK STATUS ENTITIES */
 
@@ -399,3 +443,11 @@ body {
   font-size: 24px;
 }
 /* END USER NAME ENTITIES */
+
+/* START CHAT WIDGET */
+.chat {
+  background-color: $main-color-black;
+  width: 100%;
+  height: 100%;
+}
+/* END CHAT WIDGET */

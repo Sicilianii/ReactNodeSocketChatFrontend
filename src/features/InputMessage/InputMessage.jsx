@@ -6,7 +6,7 @@ import {useDispatch} from "react-redux";
 import ToolButtons from "../../entities/ToolButtons/ToolButtons";
 import {addMessage} from "../../app/slice/slice";
 
-export default function InputMessage({id}) {
+export default function InputMessage__features({id}) {
 
     const GET_TIME = () => {
         let data = new Date();

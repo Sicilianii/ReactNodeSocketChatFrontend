@@ -622,7 +622,7 @@ body {
 /* START USER ACTIVE CART */
 .user {
   height: 100%;
-  width: 250px;
+  min-width: 280px;
   display: flex;
   box-sizing: border-box;
   position: relative;
@@ -654,6 +654,43 @@ body {
 }
 .user__close-svg {
   margin: 0;
+}
+.user__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.user__buttons-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background-color: rgb(143, 13, 239);
+}
+.user__info {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.user__info-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.user__info-item-name, .user__info-item-val {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
 }
 
 /* END USER ACTIVE CART */
@@ -694,5 +731,13 @@ body {
 }
 
 /* END USER NAME ENTITIES */
+/* START CHAT WIDGET */
+.chat {
+  background-color: rgb(22, 22, 22);
+  width: 100%;
+  height: 100%;
+}
+
+/* END CHAT WIDGET */
 
 /*# sourceMappingURL=index.css.map */
