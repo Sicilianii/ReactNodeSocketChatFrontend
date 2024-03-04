@@ -869,5 +869,13 @@ body {
 }
 
 /* END INPUT BAR FEATURES */
+/* START PLACE HOLDER */
+.place-holder-for-chat {
+  width: 100%;
+  height: 100%;
+  background: rgb(22, 22, 22);
+}
+
+/* END PLACE HOLDER */
 
 /*# sourceMappingURL=index.css.map */

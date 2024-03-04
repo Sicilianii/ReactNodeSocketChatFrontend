@@ -6,7 +6,7 @@ import {useEffect} from "react";
 import ListMessages from "./ui/ListMessages/ListMessages";
 import InputMessage__features from "../../features/InputMessage/InputMessage";
 
-export default function Chat() {
+export default function Chat__widget() {
 
     let { chatId } = useParams();
     const messages = useSelector(state => state.profile);

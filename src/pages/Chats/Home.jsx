@@ -2,10 +2,11 @@
 
 import YourChats__widget from "../../widgets/YourChats/YourChats";
 import Search__widget from "../../widgets/Search/Search";
-import ChatRouter from "../../app/routs/ChatRouts";
+import ChatRouter from "../../app/routes/ChatRouts";
 import TopBarActiveUser__widget from "../../widgets/TopBarActiveUser/TopBarActiveUser";
 import CardActiveUser__entities from "../../entities/CardActiveUser/CardActiveUser";
 import Navigation__widget from "../../widgets/Navigation/Navigation";
+import {Outlet} from "react-router-dom";
 
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
                     <div className={'place-chat-wrapper'}>
                         <TopBarActiveUser__widget />
                         <div className={'place-wrapper'}>
-                            <ChatRouter />
+                            <Outlet />
                             <CardActiveUser__entities />
                         </div>
                     </div>

@@ -11,7 +11,7 @@ export default function Group__entities({props}) {
 
     return list.map( (item, id) =>
             <li className={'list-chats__item'} key={id}>
-                <Link to={`/chat/${item.id_chats}`} className={'list-chats__item-link'}>
+                <Link to={`/chats/${item.id_chats}`} className={'list-chats__item-link'}>
                     <span className={'list-chats__item-name'}>
                         {item.nameChat ? item.nameChat : getUsers(users, item.users[0])}
                     </span>
