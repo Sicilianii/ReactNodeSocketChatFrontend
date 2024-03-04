@@ -1,10 +1,17 @@
 
 
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {useDispatch} from "react-redux";
 
-import ToolButtons from "../../entities/ToolButtons/ToolButtons";
+
 import {addMessage} from "../../app/slice/slice";
+import BoldFontSize from "./ui/BoldFontSize/BoldFontSize";
+import PinAnything from "./ui/PinAnything/PinAnything";
+import AnyLink from "./ui/AnyLink/AnyLink";
+import VoiceMessage from "./ui/VoiceMessage/VoiceMessage";
+import CameraMessage from "./ui/CameraMessage/CameraMessage";
+import Smiles from "./ui/Smiles/Smiles";
+import SubmitSendBtn from "./ui/SubmitSendBtn/SubmitSendBtn";
 
 export default function InputMessage__features({id}) {
 
@@ -12,6 +19,8 @@ export default function InputMessage__features({id}) {
         let data = new Date();
         return `${data.getHours()}:${data.getMinutes()}`
     }
+
+    const form = useRef();
 
     const [currData, setCurrData] = useState({
         author: '#00002',
@@ -31,10 +40,31 @@ export default function InputMessage__features({id}) {
         setCurrData( perv => ({...perv, message: [ { time_mess: '18:32', body_mess: '' } ] }));
     }
 
+    const sendEnter = (ev) => {
+        if(!ev.shiftKey && ev.keyCode==13) {
+            sendChat(ev);
+        }
+    }
+
+
     return(
-        <form className={'form'} onSubmit={ event =>  sendChat( event ) }>
-            <input placeholder={'Type your message here...'} className={'form__textarea'} onChange={ (event)=> changeInpt(event) } value={currData.message[0].body_mess}/>
-            <ToolButtons />
+        <form ref={form} className={'form'} onSubmit={ event =>  sendChat( event ) }>
+            <textarea placeholder={'Type your message here...'}
+                   className={'form__textarea'}
+                   onKeyDown={ (event) => sendEnter(event) }
+                   onChange={ (event)=> changeInpt(event) }
+                   value={currData.message[0].body_mess}/>
+            <div className={'form__bottom-bar'}>
+                <div className={'bottom-bar'}>
+                    <BoldFontSize/>
+                    <PinAnything/>
+                    <AnyLink/>
+                    <VoiceMessage/>
+                    <CameraMessage/>
+                    <Smiles/>
+                </div>
+                <SubmitSendBtn/>
+            </div>
         </form>
     );
 }
