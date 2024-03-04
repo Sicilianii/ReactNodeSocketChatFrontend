@@ -12,7 +12,8 @@ export default function App() {
     const router = createBrowserRouter([
         {
             path: '/GetStarted',
-            element: <GetStarted />
+            element: <GetStarted />,
+            
         },
         {
             path: '/',

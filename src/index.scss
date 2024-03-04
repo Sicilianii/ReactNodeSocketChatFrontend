@@ -455,6 +455,99 @@ body {
   flex-direction: column;
   justify-content: flex-end;
 }
+.message__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  max-height: 398px;
+  height: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none; /* Firefox */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  transition: all 300ms ease;
+
+
+
+  &__img-prof {
+    background-image: url('./shared/assets/img/user1.png');
+    min-width: 40px;
+    min-height: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
+
+
+    &-head {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+
+      &-name, &-time {
+
+        color: $main-color-white;
+        text-decoration: none;
+        font-size: 18px;
+      }
+    }
+
+    &-text {
+      padding: 0 0 20px 0;
+      box-sizing: border-box;
+      margin: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+
+
+      &-item {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+
+        &-p {
+          color: $main-color-white;
+          width: 80%;
+          word-wrap: anywhere;
+        }
+
+        &-time {
+          color: $main-color-gray-light;
+          display: none;
+          transition: all 300ms ease
+        }
+
+        &:hover &-time {display: block;transition: all 300ms ease}
+      }
+    }
+  }
+}
+
 /* END CHAT WIDGET */
 
 /* START INPUT BAR FEATURES */

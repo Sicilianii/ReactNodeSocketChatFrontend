@@ -10,7 +10,7 @@ export default function ListMessages({store, id}) {
     const getUser =  (data, idUser) => { return data.find( el => el.id === idUser ); }
 
     return (
-        <ul className={'message__list'} id='chat'> {
+        <ul className={'message__list'} id='chat' s> {
             currentChat.map( (item,id) =>
 
                 <li key={id} className={'message'}>

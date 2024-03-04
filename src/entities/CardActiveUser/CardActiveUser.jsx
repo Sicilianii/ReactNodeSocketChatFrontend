@@ -1,12 +1,16 @@
 import UserNetworkStatus__shared from "../../shared/ui/UserNetworkStatus/UserNetworkStatus";
 import UserName__shared from "../../shared/ui/UserName/UserName";
 import UserPhotoProfileBIG__shared from "../../shared/ui/UserPhotoProfileBIG/UserPhotoProfileBIG";
+import {useState} from "react";
 
 
 export default function CardActiveUser__entities() {
-    return (
+
+    const [close, setClose] = useState(true)
+
+    return close && (
         <article className={'user'}>
-            <button className={'user__close'}>
+            <button className={'user__close'} onClick={ () => setClose(!close) }>
                 <svg className={'user__close-svg'} viewBox="0 0 16 16"
                      width="16" height="16" fill="none">
                     <svg viewBox="0 0 352 512" width="16" height="16" fill="#fff"
