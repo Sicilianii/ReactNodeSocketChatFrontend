@@ -6,11 +6,12 @@ import React from "react";
 import NotFound from "../pages/NotFound/NotFound";
 import {STORE} from "./store/store";
 import GetStarted from "../pages/getStarted/getStarted";
-import Chat from "../widgets/Chat/Chat";
+import Chat from "../widgets/SwitchChat/SwitchChat";
 import Loading from "../pages/Loading/Loading";
 import PlaceHolderForChat__shared from "../shared/ui/PlaceHolderForChat/PlaceHolderForChat";
 
-import Chat__widget from "../widgets/Chat/Chat";
+import Chat__widget from "../widgets/SwitchChat/SwitchChat";
+import SwitchChat__widget from "../widgets/SwitchChat/SwitchChat";
 
 export default function App() {
 
@@ -26,22 +27,21 @@ export default function App() {
             // loader: <Loading />,
             children: [
                 {
-                    path: '/chats/:chatId',
-                    errorElement: <PlaceHolderForChat__shared />,
-                    element: <Chat__widget />,
-                },
-                {
                     path: '/chats',
                     element: <PlaceHolderForChat__shared />
+                },
+                {
+                    path: '/chats/:chatId',
+                    errorElement: <PlaceHolderForChat__shared />,
+                    element: <SwitchChat__widget />,
                 }
             ]
-        },
+        }
     ]);
 
     return (
         <Provider store={ STORE }>
             <RouterProvider router={router}>
-                <Home />
             </RouterProvider >
         </Provider>
     );

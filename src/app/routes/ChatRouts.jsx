@@ -1,5 +1,5 @@
 // import {Route, Routes} from "react-router-dom";
-// import Chat from "../../widgets/Chat/Chat";
+// import SwitchChat from "../../widgets/SwitchChat/SwitchChat";
 //
 //
 //

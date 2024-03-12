@@ -2,13 +2,14 @@
 
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {useEffect} from "react";
+import {useContext, useEffect} from "react";
 import ListMessages from "./ui/ListMessages/ListMessages";
 import InputMessage__features from "../../features/InputMessage/InputMessage";
+import {ContextChat} from "../../app/context/contextChat";
 
-export default function Chat__widget() {
+export default function Chat__features() {
 
-    let { chatId } = useParams();
+    const currChat = useContext(ContextChat);
     const messages = useSelector(state => state.profile);
 
     useEffect( ()=> {
@@ -18,8 +19,8 @@ export default function Chat__widget() {
 
     return(
         <div className={'chat'}>
-            <ListMessages store={messages} id={chatId} />
-            <InputMessage__features id={chatId} />
+            <ListMessages store={messages} id={currChat} />
+            <InputMessage__features id={currChat} />
         </div>
     );
 }

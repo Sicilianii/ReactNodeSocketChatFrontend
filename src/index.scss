@@ -603,5 +603,15 @@ body {
   width: 100%;
   height: 100%;
   background: $main-color-black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__sp {
+    text-transform: uppercase;
+    font-size: 36px;
+    color: $main-color-gray-light;
+    border-bottom: 1px dashed $main-color-gray-light;
+  }
 }
+
 /* END PLACE HOLDER */
