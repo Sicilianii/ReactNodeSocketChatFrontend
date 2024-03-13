@@ -1,17 +1,14 @@
-import {BrowserRouter, createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from "../pages/Chats/Home";
 import { Provider } from "react-redux";
 import React from "react";
-
 import NotFound from "../pages/NotFound/NotFound";
 import {STORE} from "./store/store";
 import GetStarted from "../pages/getStarted/getStarted";
-import Chat from "../widgets/SwitchChat/SwitchChat";
-import Loading from "../pages/Loading/Loading";
-import PlaceHolderForChat__shared from "../shared/ui/PlaceHolderForChat/PlaceHolderForChat";
 
-import Chat__widget from "../widgets/SwitchChat/SwitchChat";
 import SwitchChat__widget from "../widgets/SwitchChat/SwitchChat";
+import NotFoundChat_routes from "./routes/PlaceHolderForChat";
+
 
 export default function App() {
 
@@ -26,14 +23,22 @@ export default function App() {
             errorElement: <NotFound />,
             // loader: <Loading />,
             children: [
+                {index: true, element: <NotFoundChat_routes />},
                 {
-                    path: '/chats',
-                    element: <PlaceHolderForChat__shared />
-                },
-                {
-                    path: '/chats/:chatId',
-                    errorElement: <PlaceHolderForChat__shared />,
-                    element: <SwitchChat__widget />,
+                    errorElement: <NotFoundChat_routes />,
+                    children: [
+                        {
+                            path: '/chats',
+                            element: <NotFoundChat_routes />,
+                            errorElement: <NotFound />,
+
+                        },
+                        {
+                            path: '/chats/:chatId',
+                            errorElement: <NotFoundChat_routes />,
+                            element: <SwitchChat__widget />,
+                        }
+                    ]
                 }
             ]
         }
@@ -41,8 +46,7 @@ export default function App() {
 
     return (
         <Provider store={ STORE }>
-            <RouterProvider router={router}>
-            </RouterProvider >
+            <RouterProvider router={router} />
         </Provider>
     );
 }
