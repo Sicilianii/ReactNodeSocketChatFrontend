@@ -10,8 +10,10 @@ export default function YourChats__widget() {
             <span className={'nav-chats__heading'}>Your Chats</span>
             <div className={'nav-chats__wrapper'}>
                 <ul className={'chat-list'}>
+
                     <SelectChat__features typeChat={false}/>
                     <SelectChat__features typeChat={true}/>
+
                 </ul>
                 <AddNewChat__features/>
             </div>

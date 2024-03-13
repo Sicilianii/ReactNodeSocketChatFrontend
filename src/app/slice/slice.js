@@ -1,31 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {getChats} from "../../shared/lib/helpers/GetChats";
+import {getAllUsers} from "../../functionsAPI/requestAPI";
 
 
 const initialState = {
-    users: [
-        {
-            id: '#00001',
-            nameUser: 'Mike',
-            chats: {
-                userChats: [],
-                workChat: ['$_0001'],
-            },
-            friends: ['#00002','#00003']
-        },
-        {
-            id: '#00002',
-            nameUser: 'John',
-            chats: [],
-            friends: ['#00001','#00003'],
-        },
-        {
-            id: '#00003',
-            nameUser: 'Luice',
-            chats: [],
-            friends: ['#00001','#00002'],
-        }
-    ],
+    users: getAllUsers('65dd9ad63a31f02dbde4ab58'),
     chats: {
         // Chats for max-2 users
         recentChats: [
@@ -63,7 +42,7 @@ const initialState = {
         // WorkChats and Groupe chats (min 3 users)
         groupChats: [
             {
-                id_chats: '$_0001',
+                id_chats: '65ddd5d256788dcf4a6a9d06',
                 nameChat: 'Work',
                 users: ['#00001','#00002','#00003'], // min 3 users
                 body_chats: [
@@ -97,7 +76,7 @@ const initialState = {
                 ]
             },
             {
-                id_chats: '$_0002',
+                id_chats: '65ddd5d256788dcf4a6a9d07',
                 nameChat: 'Home',
                 users: ['#00001','#00002','#00003'], // min 3 users
                 body_chats: [

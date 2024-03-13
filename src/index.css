@@ -879,6 +879,7 @@ body {
   align-items: center;
 }
 .place-holder-for-chat__sp {
+  text-align: center;
   text-transform: uppercase;
   font-size: 36px;
   color: rgb(67, 67, 67);
