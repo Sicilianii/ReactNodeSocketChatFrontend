@@ -6,5 +6,13 @@ export async function getChat( {params} ) {
 }
 
 export async function getAllUsers( userID ) {
-    return await fetch(`/users/${userID}`).then(res => res.json()).catch( err => {console.log(err)})
+    return await fetch(`/user/${userID}`).then(res => res.json()).catch( err => {console.log(err)})
+}
+
+export async function getAllMyRecentChats( userID ) {
+    return await fetch(`/recents/${userID}`).then(res => res.json()).catch( err => {console.log(err)})
+}
+
+export async function getAllMyGroupChats( userID ) {
+    return await fetch(`/groups/${userID}`).then(res => res.json()).catch( err => {console.log(err)})
 }

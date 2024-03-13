@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from "../pages/Chats/Home";
 import { Provider } from "react-redux";
-import React, {createContext} from "react";
+import React from "react";
 import NotFound from "../pages/NotFound/NotFound";
 import {STORE} from "./store/store";
 import GetStarted from "../pages/getStarted/getStarted";
@@ -38,7 +38,13 @@ export default function App() {
 
                         },
                         {
-                            path: '/chats/:chatId',
+                            path: '/chats/group/:chatId',
+                            errorElement: <NotFoundChat_routes />,
+                            element: <SwitchChat__widget />,
+                            loader: getChat
+                        },
+                        {
+                            path: '/chats/recent/:chatId',
                             errorElement: <NotFoundChat_routes />,
                             element: <SwitchChat__widget />,
                             loader: getChat
@@ -50,10 +56,10 @@ export default function App() {
     ]);
 
     return (
-        <UserAuth.Provider value={USER}>
+
             <Provider store={ STORE }>
                 <RouterProvider router={router} />
             </Provider>
-        </UserAuth.Provider>
+
     );
 }
