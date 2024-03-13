@@ -11,8 +11,8 @@ export default function ListMessages({store, id}) {
 
     return (
         <ul className={'message__list'} id='chat'> {
-            currentChat.map( (item,id) =>
 
+            currentChat.map( (item,id) =>
                 <li key={id} className={'message'}>
                     <div className={'message__img-prof'}></div>
                     <div className={'message__body'}>
