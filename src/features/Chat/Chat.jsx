@@ -1,6 +1,6 @@
 
 
-import {useParams} from "react-router-dom";
+import {useLoaderData, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {useContext, useEffect} from "react";
 import ListMessages from "./ui/ListMessages/ListMessages";
@@ -9,18 +9,18 @@ import {ContextChat} from "../../app/context/contextChat";
 
 export default function Chat__features() {
 
-    const currChat = useContext(ContextChat);
-    const messages = useSelector(state => state.profile);
+    const listMessages = useLoaderData();
 
-    useEffect( ()=> {
-        let chat = document.getElementById('chat');
-        chat.scrollTop = chat.scrollHeight;
-    },[messages])
+
+    // useEffect( ()=> {
+    //     let chat = document.getElementById('chat');
+    //     chat.scrollTop = chat.scrollHeight;
+    // },[messages])
 
     return(
         <div className={'chat'}>
-            <ListMessages store={messages} id={currChat} />
-            <InputMessage__features id={currChat} />
+            <ListMessages store={listMessages.body_chats} />
+            <InputMessage__features id={listMessages._id} />
         </div>
     );
 }

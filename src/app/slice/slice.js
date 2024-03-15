@@ -4,10 +4,10 @@ import {getAllMyGroupChats, getAllMyRecentChats, getAllUsers} from "../../functi
 
 
 const initialState = {
-    users: getAllUsers('65dd9ad63a31f02dbde4ab58'),
+    users: await getAllUsers('65dd9ad63a31f02dbde4ab58'),
     chats: {
-        recentChats: getAllMyRecentChats('65dd9ad63a31f02dbde4ab58'),
-        groupChats: getAllMyGroupChats('65dd9ad63a31f02dbde4ab58')
+        recentChats: await getAllMyRecentChats('65dd9ad63a31f02dbde4ab58'),
+        groupChats: await getAllMyGroupChats('65dd9ad63a31f02dbde4ab58')
     }
 };
 

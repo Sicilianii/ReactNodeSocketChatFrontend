@@ -7,7 +7,7 @@ import {ContextChat} from "../../app/context/contextChat";
 
 export default function SwitchChat__widget() {
 
-    const dataChat = useLoaderData();
+    console.log('RENDER SwitchChat__widget')
 
     let { chatId } = useParams();
 

@@ -9,7 +9,7 @@ import GetStarted from "../pages/getStarted/getStarted";
 import SwitchChat__widget from "../widgets/SwitchChat/SwitchChat";
 import NotFoundChat_routes from "./routes/NotFoundChat_routes";
 import PleaseSelectChat_routes from "./routes/PleaseSelectChat_routes";
-import {getChat} from "../functionsAPI/requestAPI";
+import {getGroupChat, getRecentChat} from "../functionsAPI/requestAPI";
 import {UserAuth} from './context/contextChat'
 
 // here func of auth user
@@ -41,13 +41,13 @@ export default function App() {
                             path: '/chats/group/:chatId',
                             errorElement: <NotFoundChat_routes />,
                             element: <SwitchChat__widget />,
-                            loader: getChat
+                            loader: getGroupChat
                         },
                         {
                             path: '/chats/recent/:chatId',
                             errorElement: <NotFoundChat_routes />,
                             element: <SwitchChat__widget />,
-                            loader: getChat
+                            loader: getRecentChat
                         }
                     ]
                 }
