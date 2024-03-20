@@ -49,13 +49,13 @@ export default function App() {
                         {
                             path: '/chats/group/:chatId',
                             errorElement: <NotFoundChat_routes />,
-                            element: <SwitchChat__widget />,
+                            element: <SwitchChat__widget type={false}/>,
                             loader: getGroupChat
                         },
                         {
                             path: '/chats/recent/:chatId',
                             errorElement: <NotFoundChat_routes />,
-                            element: <SwitchChat__widget />,
+                            element: <SwitchChat__widget type={true}/>,
                             loader: getRecentChat
                         }
                     ]

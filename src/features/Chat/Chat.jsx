@@ -19,8 +19,8 @@ export default function Chat__features() {
 
     return(
         <div className={'chat'}>
-            <ListMessages store={listMessages.body_chats} />
-            <InputMessage__features id={listMessages._id} />
+            <ListMessages store={listMessages.messagesChat.body_chats} />
+            <InputMessage__features id={listMessages.messagesChat._id} />
         </div>
     );
 }
