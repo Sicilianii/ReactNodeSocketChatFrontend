@@ -11,10 +11,10 @@ import SwitchChat__widget from "../widgets/SwitchChat/SwitchChat";
 import NotFoundChat_routes from "./routes/NotFoundChat_routes";
 import PleaseSelectChat_routes from "./routes/PleaseSelectChat_routes";
 import {getGroupChat, getRecentChat} from "../functionsAPI/requestAPI";
-import {UserAuth} from './context/contextChat'
-import {type} from "@testing-library/user-event/dist/type";
-import {getAllUsersAPI} from "./slice/usersSlice";
 
+import {getAllUsersAPI} from "./slice/usersSlice";
+import {getAllGroupChatAPI} from "./slice/groupChatSlice";
+import {getAllRecentChatAPI} from "./slice/recentChatSlice";
 // here func of auth user
 
 export default function App() {
@@ -22,6 +22,8 @@ export default function App() {
 
 
     STORE.dispatch(getAllUsersAPI('65dd9ad63a31f02dbde4ab58'));
+    STORE.dispatch(getAllGroupChatAPI('65dd9ad63a31f02dbde4ab58'));
+    STORE.dispatch(getAllRecentChatAPI('65dd9ad63a31f02dbde4ab58'));
 
     const router = createBrowserRouter([
         {
