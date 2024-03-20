@@ -1,10 +1,5 @@
-
-
 import {useRef, useState} from "react";
 import {useDispatch} from "react-redux";
-
-
-import {addMessage} from "../../app/slice/slice";
 import BoldFontSize from "./ui/BoldFontSize/BoldFontSize";
 import PinAnything from "./ui/PinAnything/PinAnything";
 import AnyLink from "./ui/AnyLink/AnyLink";
@@ -32,28 +27,29 @@ export default function InputMessage__features({id}) {
         ]
     });
 
-    const dispatch = useDispatch();
-    const changeInpt = (e) => setCurrData(pervstate => ({...pervstate, message: [{time_mess: GET_TIME(), body_mess: e.target.value }]}));
-    const sendChat = function (e) {
-        e.preventDefault();
-        (currData.message[0].body_mess !== '') && dispatch(addMessage( { currData, id } ));
-        setCurrData( perv => ({...perv, message: [ { time_mess: '18:32', body_mess: '' } ] }));
-    }
+    // const dispatch = useDispatch();
+    // const changeInpt = (e) => setCurrData(pervstate => ({...pervstate, message: [{time_mess: GET_TIME(), body_mess: e.target.value }]}));
+    // const sendChat = function (e) {
+    //     e.preventDefault();
+    //     (currData.message[0].body_mess !== '') && dispatch(addMessage( { currData, id } ));
+    //     setCurrData( perv => ({...perv, message: [ { time_mess: '18:32', body_mess: '' } ] }));
+    // }
 
-    const sendEnter = (ev) => {
-        if(!ev.shiftKey && ev.keyCode==13) {
-            sendChat(ev);
-        }
-    }
+    // const sendEnter = (ev) => {
+    //     if(!ev.shiftKey && ev.keyCode==13) {
+    //         // sendChat(ev);
+    //     }
+    // }
 
 
     return(
-        <form ref={form} className={'form'} onSubmit={ event =>  sendChat( event ) }>
+        <form ref={form} className={'form'} >
             <textarea placeholder={'Type your message here...'}
                    className={'form__textarea'}
-                   onKeyDown={ (event) => sendEnter(event) }
-                   onChange={ (event)=> changeInpt(event) }
-                   value={currData.message[0].body_mess}/>
+                   // onKeyDown={ (event) => sendEnter(event) }
+                   // onChange={ (event)=> changeInpt(event) }
+                   // value={currData.message[0].body_mess}
+            />
             <div className={'form__bottom-bar'}>
                 <div className={'bottom-bar'}>
                     <BoldFontSize/>

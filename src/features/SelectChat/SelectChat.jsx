@@ -17,7 +17,11 @@ export default function SelectChat__features({ typeChat }) {
     const RecentChat = HOC__Chat(Group__entities);
     const GroupeChat = HOC__Chat(Group__entities);
 
-    const CHATS = useSelector(state => state.profile.chats);
+    const selectGroupChat = state => state.group;
+    const selectRecentChat = state => state.recent;
+
+    const recentChats = useSelector(selectRecentChat);
+    const groupChats = useSelector(selectGroupChat);
 
 
     return(
@@ -31,7 +35,7 @@ export default function SelectChat__features({ typeChat }) {
                 </button>
                 <ul className={'list-chats'} style={{display: drop ? "block" : 'none'}}>
 
-                  { typeChat ? <RecentChat type={true} props={CHATS.recentChats}/> : <GroupeChat type={false} props={CHATS.groupChats}/> }
+                  { typeChat ? <RecentChat type={true} chat={recentChats}/> : <GroupeChat type={false} chat={groupChats}/> }
 
                 </ul>
             </li>

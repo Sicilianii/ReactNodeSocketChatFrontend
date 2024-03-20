@@ -11,7 +11,7 @@ import {getAllUsers} from "../../functionsAPI/requestAPI";
 export default function Home() {
 
     const users = useSelector( state => state)
-    console.log(users, 'this log users from Home comp')
+    // console.log(users, 'this log users from Home comp')
 
     return(
         <main className={'main container'}>
