@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from "../pages/Chats/Home";
-import { Provider } from "react-redux";
+import {Provider} from "react-redux";
+
 import React from "react";
 import NotFound from "../pages/NotFound/NotFound";
 import {STORE} from "./store/store";
@@ -11,10 +12,16 @@ import NotFoundChat_routes from "./routes/NotFoundChat_routes";
 import PleaseSelectChat_routes from "./routes/PleaseSelectChat_routes";
 import {getGroupChat, getRecentChat} from "../functionsAPI/requestAPI";
 import {UserAuth} from './context/contextChat'
+import {type} from "@testing-library/user-event/dist/type";
+import {getAllUsersAPI} from "./slice/usersSlice";
 
 // here func of auth user
 
 export default function App() {
+
+
+
+    STORE.dispatch(getAllUsersAPI('65dd9ad63a31f02dbde4ab58'));
 
     const router = createBrowserRouter([
         {
