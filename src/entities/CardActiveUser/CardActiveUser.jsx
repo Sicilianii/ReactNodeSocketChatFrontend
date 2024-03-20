@@ -1,10 +1,14 @@
 import UserNetworkStatus__shared from "../../shared/ui/UserNetworkStatus/UserNetworkStatus";
 import UserName__shared from "../../shared/ui/UserName/UserName";
 import UserPhotoProfileBIG__shared from "../../shared/ui/UserPhotoProfileBIG/UserPhotoProfileBIG";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {ContextChat} from "../../app/context/contextChat";
+
 
 
 export default function CardActiveUser__entities() {
+
+    const userInfo = useContext(ContextChat);
 
     const [close, setClose] = useState(true)
 

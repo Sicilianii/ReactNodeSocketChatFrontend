@@ -8,12 +8,10 @@ export default function SwitchChat__widget({type}) {
 
     console.log('RENDER SwitchChat__widget')
 
-    let { chatId } = useParams();
     const data = useLoaderData();
-    console.log(data)
 
     return(
-        <ContextChat.Provider value={chatId}>
+        <ContextChat.Provider value={data}>
 
             <div className={'place-chat-wrapper'}>
                 { type && <TopBarActiveUser__widget/> }
