@@ -1,8 +1,6 @@
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {getUser} from "../../shared/lib/helpers/GetUser";
-import {useState} from "react";
-import {logDOM} from "@testing-library/react";
 
 
 export default function Group__entities({chat, type}) {
@@ -15,7 +13,7 @@ export default function Group__entities({chat, type}) {
                 {type ?
                 <Link to={`/chats/recent/${item._id}`} className={'list-chats__item-link'}>
                     <span className={'list-chats__item-name'}>
-                        { getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, item.users) }
+                        { getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, item.users).nameUser }
                     </span>
                     {/*<div className={'list-chats__item-count'}>{item.body_chats.length}</div>*/}
                 </Link> :
@@ -27,8 +25,4 @@ export default function Group__entities({chat, type}) {
                 </Link>}
             </li>
     );
-
-    // return (
-    //     <>Loading</>
-    // )
 }

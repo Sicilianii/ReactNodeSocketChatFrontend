@@ -9,6 +9,6 @@ export default function UserName__shared() {
     const users = useSelector(selectUsers);
 
     return (
-        <span className={'user-name'}>{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users) }</span>
+        <span className={'user-name'}>{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).nameUser }</span>
     );
 }

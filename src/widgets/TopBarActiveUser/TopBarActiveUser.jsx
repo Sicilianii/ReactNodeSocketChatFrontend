@@ -13,7 +13,7 @@ export default function TopBarActiveUser__widget() {
 
     return(
         <section className={'top-bar'}>
-            <div className={'top-bar__user'}>{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users) }</div>
+            <div className={'top-bar__user'}>{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).nameUser }</div>
             <CallButtons />
         </section>
     );

@@ -3,12 +3,17 @@ import UserName__shared from "../../shared/ui/UserName/UserName";
 import UserPhotoProfileBIG__shared from "../../shared/ui/UserPhotoProfileBIG/UserPhotoProfileBIG";
 import {useContext, useState} from "react";
 import {ContextChat} from "../../app/context/contextChat";
+import {getUser} from "../../shared/lib/helpers/GetUser";
+import {useSelector} from "react-redux";
 
 
 
 export default function CardActiveUser__entities() {
 
     const userInfo = useContext(ContextChat);
+    const selectUsers = state => state.user;
+    const users = useSelector(selectUsers);
+
 
     const [close, setClose] = useState(true)
 
@@ -55,15 +60,21 @@ export default function CardActiveUser__entities() {
             <ul className={'user__info'}>
                 <li className={'user__info-item'}>
                     <span className={'user__info-item-name'}>Job Title</span>
-                    <span className={'user__info-item-val'}>Marketing Manager</span>
+                    <span className={'user__info-item-val'}>{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).job_title || 'Not Available' }</span>
                 </li>
                 <li className={'user__info-item'}>
                     <span className={'user__info-item-name'}>Email Address</span>
-                    <a href={'mailto:john@example.com'} className={'user__info-item-val'}>john@example.com</a>
+                    <a
+                        href={`mailto:${getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).email || '#'}`}
+                        className={'user__info-item-val'}
+                    >{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).email || 'Not Available' }</a>
                 </li>
                 <li className={'user__info-item'}>
                     <span className={'user__info-item-name'}>Phone Call</span>
-                    <span className={'user__info-item-val'}>Not Available</span>
+                    <a
+                        href={`tel:${getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).phone || '#'}`}
+                        className={'user__info-item-val'}
+                    >{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).phone || 'Not Available' }</a>
                 </li>
                 <li className={'user__info-item'}>
                     <span className={'user__info-item-name'}>Local Timezone</span>

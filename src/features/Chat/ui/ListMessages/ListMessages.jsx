@@ -1,20 +1,15 @@
-
 import {Link} from "react-router-dom";
-import Message from "../../../../entities/Message/Message";
-import {getChats} from "../../../../shared/lib/helpers/GetChats";
 import {useSelector} from "react-redux";
-import {useState} from "react";
-
 
 export default function ListMessages({store, id}) {
 
-    // const currentChat = getChats(store.chats, id);
-    // const getUser =  (data, idUser) => { return data.find( el => el.id === idUser ); }
-    // const [myFriends, setMyFriends] = useState(null);
+    const selectUsers = state => state.user;
+    const users = useSelector(selectUsers);
 
-    // const data = useSelector(store => store.profile.users.then(data => setMyFriends(data)))
-
-
+    const getNameUserInChat = (users, id) => {
+        let friendINFO = users.filter(user => {return user._id === id});
+        return friendINFO[0];
+    }
 
     return (
         <ul className={'message__list'} id='chat'> {
@@ -24,10 +19,12 @@ export default function ListMessages({store, id}) {
                     <div className={'message__img-prof'}></div>
                     <div className={'message__body'}>
                         <span className={'message__body-head'}>
-                            {/*<Link className={'message__body-head-name'} to={`/profile/${getUser(store.users, item.author).id}`}>*/}
-                            {/*    { getUser(store.users, item.author).nameUser }*/}
-                            {/*</Link>*/}
-                            {item.users_id}
+                            <Link
+                                className={'message__body-head-name'}
+                                to={`/profile/${getNameUserInChat(users.entities, item.users_id)?._id || '65dd9ad63a31f02dbde4ab58'}`}
+                            >
+                                { getNameUserInChat(users.entities, item.users_id)?.nameUser || 'You'}
+                            </Link>
                             <span className={'message__body-head-time'}> {item.time_mess}</span>
                         </span>
                         {/*<Message listMess={ item.body_mess } />*/}
