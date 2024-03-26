@@ -1,26 +1,31 @@
-
-
 import {useLoaderData, useParams} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {useContext, useEffect} from "react";
+import {memo, useContext, useEffect, useState} from "react";
 import ListMessages from "./ui/ListMessages/ListMessages";
 import InputMessage__features from "../../features/InputMessage/InputMessage";
+import { io } from "socket.io-client";
 import {ContextChat} from "../../app/context/contextChat";
+
 
 export default function Chat__features() {
 
-    const listMessages = useLoaderData();
+    const data = useContext(ContextChat);
+    const socket = io('http://localhost:3001');
+    const user = {
+        name: 'Mike',
+        id: '65dd9ad63a31f02dbde4ab58'
+    }
 
+    // console.log(data, 'LOADER DATA')
+    // console.log(messages, 'STATE DATA')
 
-    // useEffect( ()=> {
-    //     let chat = document.getElementById('chat');
-    //     chat.scrollTop = chat.scrollHeight;
-    // },[messages])
+    useEffect(() => {
+        socket.emit('newConnection', data.messagesChat._id, user)
+    }, [data]);
 
     return(
         <div className={'chat'}>
-            <ListMessages store={listMessages.messagesChat.body_chats} />
-            <InputMessage__features id={listMessages.messagesChat._id} />
+            <ListMessages messages={data.messagesChat.body_chats} />
+            <InputMessage__features id={data.messagesChat._id} />
         </div>
     );
 }

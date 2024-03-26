@@ -4,13 +4,13 @@ import Navigation__widget from "../../widgets/Navigation/Navigation";
 import {Outlet} from "react-router-dom";
 import React from "react";
 import {useSelector} from "react-redux";
-import {getAllUsers} from "../../functionsAPI/requestAPI";
+
 
 
 
 export default function Home() {
 
-    const users = useSelector( state => state)
+    // const users = useSelector( state => state)
     // console.log(users, 'this log users from Home comp')
 
     return(

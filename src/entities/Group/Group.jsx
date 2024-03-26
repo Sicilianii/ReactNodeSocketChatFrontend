@@ -13,7 +13,7 @@ export default function Group__entities({chat, type}) {
                 {type ?
                 <Link to={`/chats/recent/${item._id}`} className={'list-chats__item-link'}>
                     <span className={'list-chats__item-name'}>
-                        { getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, item.users).nameUser }
+                        { getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, item.users)?.nameUser || 'NOT AVALIBLE' }
                     </span>
                     {/*<div className={'list-chats__item-count'}>{item.body_chats.length}</div>*/}
                 </Link> :
