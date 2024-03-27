@@ -4,19 +4,26 @@ import ListMessages from "./ui/ListMessages/ListMessages";
 import InputMessage__features from "../../features/InputMessage/InputMessage";
 import { io } from "socket.io-client";
 import {ContextChat} from "../../app/context/contextChat";
+import {socket} from "../../app/socket/socket";
+
 
 
 export default function Chat__features() {
 
     const data = useContext(ContextChat);
-    const socket = io('http://localhost:3001');
+    const [newMessage, setNewMessage] = useState([]);
+
     const user = {
         name: 'Mike',
         id: '65dd9ad63a31f02dbde4ab58'
     }
 
-    // console.log(data, 'LOADER DATA')
-    // console.log(messages, 'STATE DATA')
+    useEffect( ()=> {
+        let chat = document.getElementById('chat');
+        chat.scrollTop = chat.scrollHeight;
+    },[newMessage])
+
+    console.log(newMessage, 'STATE DATA')
 
     useEffect(() => {
         socket.emit('newConnection', data.messagesChat._id, user)
@@ -24,8 +31,13 @@ export default function Chat__features() {
 
     return(
         <div className={'chat'}>
-            <ListMessages messages={data.messagesChat.body_chats} />
-            <InputMessage__features id={data.messagesChat._id} />
+            <ul className={'message__list'} id='chat'>
+
+                <ListMessages messages={data.messagesChat.body_chats}/>
+                <ListMessages messages={newMessage}/>
+
+            </ul>
+            <InputMessage__features sendNewMessage={setNewMessage} />
         </div>
-    );
+);
 }

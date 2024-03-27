@@ -15,7 +15,6 @@ import {getGroupChat, getRecentChat} from "../functionsAPI/requestAPI";
 import {getAllUsersAPI} from "./slice/usersSlice";
 import {getAllGroupChatAPI} from "./slice/groupChatSlice";
 import {getAllRecentChatAPI} from "./slice/recentChatSlice";
-// here func of auth user
 
 export default function App() {
 
