@@ -5,10 +5,21 @@ import {useLoaderData} from "react-router-dom";
 import {ContextChat} from "../../app/context/contextChat";
 import {memo, useEffect, useMemo} from "react";
 import {io} from "socket.io-client";
+import {socket} from "../../app/socket/socket";
 
 
 export default function SwitchChat__widget({type}) {
-    const data = useLoaderData()
+    const data = useLoaderData();
+
+    const user = {
+        name: 'Mike',
+        id: '65dd9ad63a31f02dbde4ab58'
+    }
+
+    useEffect(() => {
+        socket.emit('newConnection', data.messagesChat._id, user)
+        console.log('new connect')
+    }, [data]);
 
     const memoContextData = useMemo(() => {
         return data;

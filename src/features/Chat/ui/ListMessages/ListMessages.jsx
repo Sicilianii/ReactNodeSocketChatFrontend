@@ -14,7 +14,7 @@ export default function ListMessages({messages}) {
         return friendINFO[0];
     }
 
-    console.log(messages, 'messages')
+    // console.log(messages, 'messages')
 
     return messages && messages.map( (item,id) =>
         <li key={id} className={'message'}>

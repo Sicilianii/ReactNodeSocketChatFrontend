@@ -7,6 +7,7 @@ import VoiceMessage from "./ui/VoiceMessage/VoiceMessage";
 import CameraMessage from "./ui/CameraMessage/CameraMessage";
 import Smiles from "./ui/Smiles/Smiles";
 import SubmitSendBtn from "./ui/SubmitSendBtn/SubmitSendBtn";
+import {socket} from "../../app/socket/socket";
 
 export default function InputMessage__features({sendNewMessage}) {
 
@@ -34,7 +35,9 @@ export default function InputMessage__features({sendNewMessage}) {
         e.preventDefault();
         if (currData?.body_mess !== '') {
             //socket io
-            sendNewMessage( pervstate => [...pervstate, currData] )
+            // console.log(currData)
+            socket.emit('SendNewMessage', currData)
+            // sendNewMessage( pervstate => [...pervstate, currData] )
         }
         setCurrData( perv => ({...perv, time_mess: GET_TIME(), body_mess: '' }));
     }
@@ -42,7 +45,7 @@ export default function InputMessage__features({sendNewMessage}) {
 
 
     return(
-        <form ref={form} className={'form'} >
+        <form ref={form} className={'form'} onSubmit={ (event) => sendChat(event)}>
             <textarea placeholder={'Type your message here...'}
                    className={'form__textarea'}
                    onKeyDown={ (event) => sendEnter(event) }

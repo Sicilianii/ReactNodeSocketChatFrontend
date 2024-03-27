@@ -25,9 +25,15 @@ export default function Chat__features() {
 
     console.log(newMessage, 'STATE DATA')
 
-    useEffect(() => {
-        socket.emit('newConnection', data.messagesChat._id, user)
-    }, [data]);
+
+
+    socket.on('NewState', (newMess) => {
+        setNewMessage( perv => [])
+    })
+
+    socket.on('MailingMessages', (newMess) => {
+        setNewMessage( perv => [...perv, newMess])
+    })
 
     return(
         <div className={'chat'}>

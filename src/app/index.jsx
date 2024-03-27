@@ -18,12 +18,6 @@ import {getAllRecentChatAPI} from "./slice/recentChatSlice";
 
 export default function App() {
 
-
-
-    STORE.dispatch(getAllUsersAPI('65dd9ad63a31f02dbde4ab58'));
-    STORE.dispatch(getAllGroupChatAPI('65dd9ad63a31f02dbde4ab58'));
-    STORE.dispatch(getAllRecentChatAPI('65dd9ad63a31f02dbde4ab58'));
-
     const router = createBrowserRouter([
         {
             path: '/start',
@@ -63,11 +57,5 @@ export default function App() {
         }
     ]);
 
-    return (
-
-            <Provider store={ STORE }>
-                <RouterProvider router={router} />
-            </Provider>
-
-    );
+    return <RouterProvider router={router} />;
 }
