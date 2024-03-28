@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import {useContext, useRef, useState} from "react";
 import {useDispatch} from "react-redux";
 import BoldFontSize from "./ui/BoldFontSize/BoldFontSize";
 import PinAnything from "./ui/PinAnything/PinAnything";
@@ -7,9 +7,12 @@ import VoiceMessage from "./ui/VoiceMessage/VoiceMessage";
 import CameraMessage from "./ui/CameraMessage/CameraMessage";
 import Smiles from "./ui/Smiles/Smiles";
 import SubmitSendBtn from "./ui/SubmitSendBtn/SubmitSendBtn";
-import {socket} from "../../app/socket/socket";
+import {ContextChat} from "../../app/context/contextChat";
+
 
 export default function InputMessage__features({sendNewMessage}) {
+
+    const SOCKET = useContext(ContextChat)
 
     const user = {
         name: 'Mike',
@@ -28,15 +31,11 @@ export default function InputMessage__features({sendNewMessage}) {
     );
     const changeInpt = (e) => setCurrData(pervstate => ({...pervstate, time_mess: GET_TIME(), body_mess: e.target.value }));
 
-    const form = useRef();
-    // console.dir(sendNewMessage)
 
     const sendChat = (e)=> {
         e.preventDefault();
         if (currData?.body_mess !== '') {
-            //socket io
-            // console.log(currData)
-            socket.emit('SendNewMessage', currData)
+            SOCKET.emit('SendNewMessage', currData)
             // sendNewMessage( pervstate => [...pervstate, currData] )
         }
         setCurrData( perv => ({...perv, time_mess: GET_TIME(), body_mess: '' }));
@@ -45,7 +44,7 @@ export default function InputMessage__features({sendNewMessage}) {
 
 
     return(
-        <form ref={form} className={'form'} onSubmit={ (event) => sendChat(event)}>
+        <form className={'form'} onSubmit={ (event) => sendChat(event)}>
             <textarea placeholder={'Type your message here...'}
                    className={'form__textarea'}
                    onKeyDown={ (event) => sendEnter(event) }

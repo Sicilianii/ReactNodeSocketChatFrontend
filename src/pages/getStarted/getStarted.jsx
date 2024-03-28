@@ -2,6 +2,9 @@
 import {Link} from "react-router-dom";
 
 export default function  GetStarted() {
+
+    console.log("RENDER START")
+
     return(
         <div className={'bar container'}>
             <div className={'left-bar'}>
