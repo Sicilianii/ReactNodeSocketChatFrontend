@@ -4,12 +4,15 @@
 
 body {
   font-family: "Calibri Light";
+  background: black;
 }
 
 .container {
   width: 100%;
   max-width: 1240px;
   padding: 0 20px;
+  border-radius: 25px;
+  margin: 0 auto;
 }
 .main {
   display: flex;
@@ -17,7 +20,7 @@ body {
   overflow: auto;
   //height: 100%;
   padding: 0;
-  height: 700px;
+  height: 600px;
 }
 .page-wrapper {
   display: flex;
@@ -616,3 +619,79 @@ body {
 }
 
 /* END PLACE HOLDER */
+
+
+/* START GETSTARTED PAGES */
+
+.start {
+  height: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: $main-color-gray-light;
+  padding: 0;
+  border-radius: 25px;
+
+  &-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    align-items: flex-start;
+    width: 50%;
+    padding: 120px;
+    box-sizing: border-box;
+
+    &__heading {
+      color: $main-color-white;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+
+
+      &::before {
+        content: url("../src/shared/assets/img/users.svg");
+        position: relative;
+        top: 10px;
+        margin-right: 15px;
+      }
+    }
+
+    &__h1 {
+      color: $main-color-white;
+      font-size: 40px;
+      margin: 30px 0 0 0;
+    }
+    &__des {
+      color: $main-color-white;
+      font-size: 18px;
+      margin: 15px 0 0 0;
+    }
+    &__btn {
+      margin: 40px 0 0 0;
+    }
+  }
+
+  &-image {
+    width: 50%;
+    background: $main-color-black;
+    box-sizing: border-box;
+    padding: 50px;
+    border-radius: 25px;
+    margin: 2px;
+
+    &__back {
+      background-image: url("../src/shared/assets/img/getStarted.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 50px;
+    }
+  }
+}
+
+/* END GETSTARTED PAGES */

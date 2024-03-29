@@ -5,7 +5,7 @@ export default function Navigation__widget() {
     return(
         <ul className={'nav'}>
             <li className={'nav-item'}>
-                <Link to={`/start`} className={'nav-item__btn'}>
+                <Link to={`/`} className={'nav-item__btn'}>
                     <svg className={'nav-item__btn-svg'} xmlns="http://www.w3.org/2000/svg"
                          viewBox="0 0 576 512" width={30} height={30} fill={'#fff'}>
                         <path

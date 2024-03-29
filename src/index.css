@@ -333,12 +333,15 @@ template {
 
 body {
   font-family: "Calibri Light";
+  background: black;
 }
 
 .container {
   width: 100%;
   max-width: 1240px;
   padding: 0 20px;
+  border-radius: 25px;
+  margin: 0 auto;
 }
 
 .main {
@@ -346,7 +349,7 @@ body {
   width: 100%;
   overflow: auto;
   padding: 0;
-  height: 700px;
+  height: 600px;
 }
 
 .page-wrapper {
@@ -887,5 +890,71 @@ body {
 }
 
 /* END PLACE HOLDER */
+/* START GETSTARTED PAGES */
+.start {
+  height: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: rgb(67, 67, 67);
+  padding: 0;
+  border-radius: 25px;
+}
+.start-head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  align-items: flex-start;
+  width: 50%;
+  padding: 120px;
+  box-sizing: border-box;
+}
+.start-head__heading {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+.start-head__heading::before {
+  content: url("../src/shared/assets/img/users.svg");
+  position: relative;
+  top: 10px;
+  margin-right: 15px;
+}
+.start-head__h1 {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  margin: 30px 0 0 0;
+}
+.start-head__des {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  margin: 15px 0 0 0;
+}
+.start-head__btn {
+  margin: 40px 0 0 0;
+}
+.start-image {
+  width: 50%;
+  background: rgb(22, 22, 22);
+  box-sizing: border-box;
+  padding: 50px;
+  border-radius: 25px;
+  margin: 2px;
+}
+.start-image__back {
+  background-image: url("../src/shared/assets/img/getStarted.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 50px;
+}
+
+/* END GETSTARTED PAGES */
 
 /*# sourceMappingURL=index.css.map */
