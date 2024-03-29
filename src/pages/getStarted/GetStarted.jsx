@@ -19,7 +19,7 @@ export default function  GetStarted() {
             <h1 className={'start-head__h1'}>Discover your</h1>
             <p className={'start-head__des'}>Find out what topics you find interesting, learn new skills, and connect
                 with like-minded individuals.</p>
-            <Link to={'/logIn'} className={'start-head__btn'}>
+            <Link to={'/singIn'} className={'start-head__btn'}>
                 <WhitePurpleButtonShared fontSIzeBnt={'18px'} paddingGtn={'8px 40px'}>Get
                     started</WhitePurpleButtonShared>
             </Link>

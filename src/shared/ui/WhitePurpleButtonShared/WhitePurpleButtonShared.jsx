@@ -22,6 +22,6 @@ export default function WhitePurpleButtonShared(
             borderRadius: '30px',
             cursor: 'pointer',
             boxSizing: 'border-box'
-        }}>{children}</button>
+        }} type={"submit"}>{children}</button>
     );
 }

@@ -7,6 +7,7 @@ import SwitchChat__widget from "../widgets/SwitchChat/SwitchChat";
 import NotFoundChat_routes from "./routes/NotFoundChat_routes";
 import PleaseSelectChat_routes from "./routes/PleaseSelectChat_routes";
 import Main from "../pages/Main/Main";
+import SingIn from "../pages/SingIn/SingIn";
 
 export default function App() {
 
@@ -28,8 +29,8 @@ export default function App() {
                             // loader: getGroupChat
                         },
                         {
-                            path: '/logIn',
-                            element: <h1>Hello its page LogIn</h1>,
+                            path: '/singIn',
+                            element: <SingIn />,
                             // loader: getRecentChat
                         }
                     ]
