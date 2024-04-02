@@ -1,5 +1,5 @@
 import {useContext, useRef, useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import BoldFontSize from "./ui/BoldFontSize/BoldFontSize";
 import PinAnything from "./ui/PinAnything/PinAnything";
 import AnyLink from "./ui/AnyLink/AnyLink";
@@ -7,28 +7,27 @@ import VoiceMessage from "./ui/VoiceMessage/VoiceMessage";
 import CameraMessage from "./ui/CameraMessage/CameraMessage";
 import Smiles from "./ui/Smiles/Smiles";
 import SubmitSendBtn from "./ui/SubmitSendBtn/SubmitSendBtn";
-import {ContextChat} from "../../app/context/contextChat";
+import {SocketContext} from "../../app/context/SocketContext";
 
 
 export default function InputMessage__features({sendNewMessage}) {
 
-    const SOCKET = useContext(ContextChat)
+    const profile = useSelector( state => state.profile.entities);
+    const SOCKET = useContext(SocketContext);
 
-    const user = {
-        name: 'Mike',
-        id: '65dd9ad63a31f02dbde4ab58'
-    }
     const GET_TIME = () => {
         let data = new Date();
         return `${data.getHours()}:${data.getMinutes()}`
     }
+
     const [currData, setCurrData] = useState(
         {
-            users_id: user.id,
+            users_id: profile._id,
             time_mess: GET_TIME(),
             body_mess: ""
         }
     );
+
     const changeInpt = (e) => setCurrData(pervstate => ({...pervstate, time_mess: GET_TIME(), body_mess: e.target.value }));
 
 
@@ -36,7 +35,6 @@ export default function InputMessage__features({sendNewMessage}) {
         e.preventDefault();
         if (currData?.body_mess !== '') {
             SOCKET.emit('SendNewMessage', currData)
-            // sendNewMessage( pervstate => [...pervstate, currData] )
         }
         setCurrData( perv => ({...perv, time_mess: GET_TIME(), body_mess: '' }));
     }

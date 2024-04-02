@@ -5,6 +5,7 @@ import {getUser} from "../../shared/lib/helpers/GetUser";
 
 export default function Group__entities({chat, type}) {
 
+    const profile = useSelector( state => state.profile.entities);
     const selectUsers = state => state.user;
     const users = useSelector(selectUsers);
 
@@ -13,7 +14,7 @@ export default function Group__entities({chat, type}) {
                 {type ?
                 <Link to={`/home/chats/recent/${item._id}`} className={'list-chats__item-link'}>
                     <span className={'list-chats__item-name'}>
-                        { getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, item.users)?.nameUser || 'NOT AVALIBLE' }
+                        { getUser(profile._id ,users.entities, item.users)?.nameUser || 'NOT AVALIBLE' }
                     </span>
                     {/*<div className={'list-chats__item-count'}>{item.body_chats.length}</div>*/}
                 </Link> :

@@ -1,14 +1,14 @@
 import {useContext, useEffect, useState} from "react";
 import ListMessages from "./ui/ListMessages/ListMessages";
 import InputMessage__features from "../../features/InputMessage/InputMessage";
-import {ContextChat} from "../../app/context/contextChat";
+import {SocketContext} from "../../app/context/SocketContext";
 
 
 
 
 export default function Chat__features() {
 
-    const SOCKET = useContext(ContextChat)
+    const SOCKET = useContext(SocketContext)
 
     const [newMessage, setNewMessage] = useState([]);
 

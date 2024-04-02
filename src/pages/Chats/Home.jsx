@@ -9,23 +9,23 @@ import {getAllUsersAPI} from "../../app/slice/usersSlice";
 import {getAllGroupChatAPI} from "../../app/slice/groupChatSlice";
 import {getAllRecentChatAPI} from "../../app/slice/recentChatSlice";
 import {io} from "socket.io-client";
-import {ContextChat} from "../../app/context/contextChat";
+import {SocketContext} from "../../app/context/SocketContext";
 
 
-
-STORE.dispatch(getAllUsersAPI('65dd9ad63a31f02dbde4ab58'));
-STORE.dispatch(getAllGroupChatAPI('65dd9ad63a31f02dbde4ab58'));
-STORE.dispatch(getAllRecentChatAPI('65dd9ad63a31f02dbde4ab58'));
 export default function Home() {
 
-    // const users = useSelector( state => state)
-    // console.log(users, 'this log users from Home comp')
+    const profile = useSelector( state => state.profile.entities);
+
+    STORE.dispatch(getAllUsersAPI(profile._id));
+    STORE.dispatch(getAllGroupChatAPI(profile._id));
+    STORE.dispatch(getAllRecentChatAPI(profile._id));
+
     const socket = io();
 
     console.log("RENDER HOME")
 
     return(
-        <ContextChat.Provider value={socket}>
+        <SocketContext.Provider value={socket}>
             <main className={'main container'}>
                 <Navigation__widget />
                 <div className={'page-wrapper'}>
@@ -36,6 +36,6 @@ export default function Home() {
                     </div>
                 </div>
             </main>
-        </ContextChat.Provider>
+        </SocketContext.Provider>
     );
 }

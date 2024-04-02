@@ -2,33 +2,33 @@ import TopBarActiveUser__widget from "../TopBarActiveUser/TopBarActiveUser";
 import CardActiveUser__entities from "../../entities/CardActiveUser/CardActiveUser";
 import Chat__features from "../../features/Chat/Chat";
 import {useLoaderData, useParams} from "react-router-dom";
-import {ContextChat} from "../../app/context/contextChat";
+import {SocketContext} from "../../app/context/SocketContext";
+import {ChatContext} from "../../app/context/ChatContext";
 import {useContext, useEffect, useMemo} from "react";
+import {useSelector} from "react-redux";
 
 import {io} from "socket.io-client";
 
 
 export default function SwitchChat__widget({type}) {
 
-    const SOCKET = useContext(ContextChat)
+    const ChatInfo = useLoaderData();
+    const SOCKET = useContext(SocketContext);
+    const { chatId } = useParams();
+    const profile = useSelector( state => state.profile.entities);
+    
+    console.log(profile)
 
     console.log("RENDER ROUTE")
+    
+    SOCKET.emit('leaveConnection', chatId, profile);
+    SOCKET.emit('newConnection', chatId, profile)
 
-    const user = {
-        name: 'Mike',
-        id: '65dd9ad63a31f02dbde4ab58'
-    };
-
-    const { chatId } = useParams()
-    SOCKET.emit('leaveConnection', chatId, user);
-
-    SOCKET.emit('newConnection', chatId, user)
-
-    console.log(chatId)
+    
 
     return(
 
-
+        <ChatContext.Provider value={ChatInfo}>
             <div className={'place-chat-wrapper'}>
                 { type && <TopBarActiveUser__widget/> }
                 <div className={'place-wrapper'}>
@@ -36,7 +36,7 @@ export default function SwitchChat__widget({type}) {
                     { type && <CardActiveUser__entities/> }
                 </div>
             </div>
-
+        </ChatContext.Provider>
 
     );
 }

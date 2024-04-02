@@ -1,8 +1,9 @@
 import WhitePurpleButtonShared from "../../shared/ui/WhitePurpleButtonShared/WhitePurpleButtonShared";
 import React, {useState} from "react";
 import md5 from 'md5';
-import { json } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { singInProfile } from '../../app/slice/profileInfoSlice'
 
 
 export default function SingIn() {
@@ -17,11 +18,11 @@ export default function SingIn() {
     });
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
 
     const trySingIn = async () => {
         setLoading(true);
-        console.log(email, pass, 'its data User');
         await fetch('/singIn', {
             method: "POST",
             mode: "cors",
@@ -34,13 +35,40 @@ export default function SingIn() {
             referrerPolicy: "no-referrer",
             method: "POST",
             body: JSON.stringify({
-                "email": email,
-                "pass": md5(pass)
+                "email": email.value,
+                "pass": md5(pass.value)
             })
-        }).then(data => data.json())
+        }).then(data => {
+            switch (data.status) {
+
+                case 502: setPass( (pervstate) => {
+                    return {...pervstate, valid: false}
+                });
+                break;
+
+                case 501: setEmail( (pervstate) => {
+                    return {...pervstate, valid: false}
+                });
+                break;
+
+                case 500:
+                    setEmail( (pervstate) => {
+                        return {...pervstate, valid: false}
+                    }); 
+                    setPass( (pervstate) => {
+                        return {...pervstate, valid: false}
+                    });
+                break;
+
+                default: return data.json();
+            }
+        })
         .then(user => {
-            // dispatch();
-            setLoading(false);
+            if (user) {
+                dispatch(singInProfile(user));
+                setLoading(false);
+                navigate('/home'); 
+            }
         })
         .catch(e => { console.log(e); setLoading(false) })
     }
@@ -56,23 +84,27 @@ export default function SingIn() {
             }}>
                 <h1 className={'sing__h1'}>Welcome back!</h1>
                 <span className={'sing__sp'}>Sign In</span>
-                <input
+                <input style={{
+                    border: email.valid ? 'none' : '1px solid red'
+                }}
                     className={'sing__email'}
                     type="text"
                     placeholder={'Email'}
                     onChange={(e) => {
                         setEmail( (pervstate) => {
-                            return {...pervstate, value: e.target.value}
+                            return {...pervstate, value: e.target.value, valid: true}
                         })
                     }}
                 />
-                <input
+                <input style={{
+                    border: pass.valid ? 'none' : '1px solid red'
+                }}
                     className={'sing__pass'}
                     type="password"
                     placeholder={'Password'}
                     onChange={(e) => {
                         setPass( (pervstate) => {
-                            return {...pervstate, value: md5(e.target.value)}
+                            return {...pervstate, value: md5(e.target.value), valid: true}
                         })
                     }}
                 />

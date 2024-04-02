@@ -2,7 +2,7 @@ import UserNetworkStatus__shared from "../../shared/ui/UserNetworkStatus/UserNet
 import UserName__shared from "../../shared/ui/UserName/UserName";
 import UserPhotoProfileBIG__shared from "../../shared/ui/UserPhotoProfileBIG/UserPhotoProfileBIG";
 import {useContext, useState} from "react";
-import {ContextChat} from "../../app/context/contextChat";
+import {ChatContext} from "../../app/context/ChatContext";
 import {getUser} from "../../shared/lib/helpers/GetUser";
 import {useSelector} from "react-redux";
 
@@ -10,12 +10,13 @@ import {useSelector} from "react-redux";
 
 export default function CardActiveUser__entities() {
 
-    const userInfo = useContext(ContextChat);
+    const ChatInfo = useContext(ChatContext);
     const selectUsers = state => state.user;
     const users = useSelector(selectUsers);
+    const profile = useSelector( state => state.profile.entities);
 
 
-    const [close, setClose] = useState(true)
+    const [close, setClose] = useState(true);
 
     return close && (
         <article className={'user'}>
@@ -31,7 +32,9 @@ export default function CardActiveUser__entities() {
             </button>
             <UserPhotoProfileBIG__shared />
             <div className={'user-wrapper'}>
+
                 <UserName__shared />
+
                 <UserNetworkStatus__shared />
             </div>
             <div className={'user__buttons'}>
@@ -60,21 +63,21 @@ export default function CardActiveUser__entities() {
             <ul className={'user__info'}>
                 <li className={'user__info-item'}>
                     <span className={'user__info-item-name'}>Job Title</span>
-                    <span className={'user__info-item-val'}>{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).job_title || 'Not Available' }</span>
+                    <span className={'user__info-item-val'}>{ getUser(profile._id ,users.entities, ChatInfo.infoChat.users).job_title || 'Not Available' }</span>
                 </li>
                 <li className={'user__info-item'}>
                     <span className={'user__info-item-name'}>Email Address</span>
                     <a
-                        href={`mailto:${getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).email || '#'}`}
+                        href={`mailto:${getUser(profile._id ,users.entities, ChatInfo.infoChat.users).email || '#'}`}
                         className={'user__info-item-val'}
-                    >{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).email || 'Not Available' }</a>
+                    >{ getUser(profile._id ,users.entities, ChatInfo.infoChat.users).email || 'Not Available' }</a>
                 </li>
                 <li className={'user__info-item'}>
                     <span className={'user__info-item-name'}>Phone Call</span>
                     <a
-                        href={`tel:${getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).phone || '#'}`}
+                        href={`tel:${getUser(profile._id ,users.entities, ChatInfo.infoChat.users).phone || '#'}`}
                         className={'user__info-item-val'}
-                    >{ getUser('65dd9ad63a31f02dbde4ab58' ,users.entities, userInfo.infoChat.users).phone || 'Not Available' }</a>
+                    >{ getUser(profile._id ,users.entities, ChatInfo.infoChat.users).phone || 'Not Available' }</a>
                 </li>
                 <li className={'user__info-item'}>
                     <span className={'user__info-item-name'}>Local Timezone</span>
