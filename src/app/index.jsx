@@ -8,7 +8,9 @@ import NotFoundChat_routes from "./routes/NotFoundChat_routes";
 import PleaseSelectChat_routes from "./routes/PleaseSelectChat_routes";
 import Main from "../pages/Main/Main";
 import SingIn from "../pages/SingIn/SingIn";
-import { getGroupChat, getRecentChat } from "../functionsAPI/requestAPI";
+import SingUp from "../pages/SingUp/SingUp";
+import { getGroupChat } from "../shared/lib/helpers/getGroupChat";
+import { getRecentChat } from "../shared/lib/helpers/getRecentChat";
 
 export default function App() {
 
@@ -25,8 +27,8 @@ export default function App() {
                             element: <GetStarted />
                         },
                         {
-                            path: '/register',
-                            element: <h1>Hello its page register</h1>,
+                            path: '/singUp',
+                            element: <SingUp />,
                         },
                         {
                             path: '/singIn',

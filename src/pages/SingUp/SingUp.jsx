@@ -6,8 +6,12 @@ import { useDispatch } from "react-redux";
 import { singInProfile } from '../../app/slice/profileInfoSlice'
 
 
-export default function SingIn() {
+export default function SingUp() {
 
+    const [userName, setUserName] = useState({
+        value: '',
+        valid: true
+    });
     const [email, setEmail] = useState({
         value: '',
         valid: true
@@ -21,9 +25,9 @@ export default function SingIn() {
     const navigate = useNavigate();
 
 
-    const trySingIn = async () => {
+    const trySingUp = async () => {
         setLoading(true);
-        await fetch('/singIn', {
+        await fetch('/singUp', {
             method: "POST",
             mode: "cors",
             cache: "no-cache",
@@ -35,6 +39,7 @@ export default function SingIn() {
             referrerPolicy: "no-referrer",
             method: "POST",
             body: JSON.stringify({
+                "name": userName.value,
                 "email": email.value,
                 "pass": md5(pass.value)
             })
@@ -65,25 +70,37 @@ export default function SingIn() {
         })
         .then(user => {
             if (user) {
-                dispatch(singInProfile(user));
                 setLoading(false);
-                navigate('/home'); 
+                navigate('/singIn'); 
             }
         })
         .catch(e => { console.log(e); setLoading(false) })
     }
 
-    // const changeEmailInput = (email) => {}
-    // const changePassInput = (pass) => {}
 
     return(
         <>
             <form className={'sing'} onSubmit={(e) => {
                 e.preventDefault();
-                trySingIn();
+                trySingUp();
             }}>
-                <h1 className={'sing__h1'}>Welcome back!</h1>
-                <span className={'sing__sp'}>Sign In</span>
+                <h1 className={'sing__h1'}>Welcome ChatApp!</h1>
+                <span className={'sing__sp'}>Create Account</span>
+                <input style={{
+                    border: email.valid ? 'none' : '1px solid red'
+                }}
+                    className={'sing__email'}
+                    type="text"
+                    placeholder={'First Name'}
+                    onChange={(e) => {
+
+                        // This place for validation field
+
+                        setUserName( (pervstate) => {
+                            return {...pervstate, value: e.target.value, valid: true}
+                        })
+                    }}
+                />
                 <input style={{
                     border: email.valid ? 'none' : '1px solid red'
                 }}
@@ -92,7 +109,7 @@ export default function SingIn() {
                     placeholder={'Email'}
                     onChange={(e) => {
 
-                    // This place for validation field
+                        // This place for validation field
 
                         setEmail( (pervstate) => {
                             return {...pervstate, value: e.target.value, valid: true}
@@ -108,17 +125,17 @@ export default function SingIn() {
                     onChange={(e) => {
 
                         // This place for validation field
-                        
+
                         setPass( (pervstate) => {
                             return {...pervstate, value: md5(e.target.value), valid: true}
                         })
                     }}
                 />
-                <WhitePurpleButtonShared fontSIzeBnt={'18px'} paddingGtn={'8px 40px'}>Log In</WhitePurpleButtonShared>
+                <WhitePurpleButtonShared fontSIzeBnt={'18px'} paddingGtn={'8px 40px'}>Sing Up</WhitePurpleButtonShared>
                 <span className={'sing__new'} >
-                    New to ChatApp? 
-                    <Link className="sing__new-link" to={'/singUp'}>
-                        Sing Up
+                    Have an account? 
+                    <Link className="sing__new-link" to={'/singIn'}>
+                        Sign In
                     </Link>
                 </span>
             </form>
