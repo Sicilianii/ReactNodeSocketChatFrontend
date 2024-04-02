@@ -751,5 +751,18 @@ body {
     margin-bottom: 20px;
   }
 
+
+  &__new {
+    color: $main-color-white;
+    font-size: 20px;
+    margin-top: 20px;
+
+    &-link {
+      margin-left: 5px;
+      text-decoration: none;
+      color: $main-color-purple;
+    }
+  }
+
 }
 /* END LOG IN PAGES */
