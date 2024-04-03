@@ -28,6 +28,7 @@ body {
   width: 100%;
   height: 100%;
   justify-content: flex-start;
+  background-color: $main-color-black;
 }
 
 
@@ -766,3 +767,141 @@ body {
 
 }
 /* END LOG IN PAGES */
+
+
+.full-profile-name {
+  color: $main-color-white;
+  margin: 0;
+  text-align: left;
+  width: fit-content;
+  font-size: 32px;
+  font-weight: 500;
+}
+.profile-job-title {
+  color: $main-color-white;
+  margin: 0;
+  text-align: left;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+.profile-stats-header {
+  font-size: 24px;
+  font-weight: 500;
+  color: $main-color-white;
+}
+
+
+/* START PROFILE PAGES */
+.profile {
+  padding: 40px 30px;
+  box-sizing: border-box;
+
+
+  &-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    width: 50%;
+
+    &__data{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: flex-start;
+      gap: 15px;
+    }
+  }
+
+  &-stats {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    border: 10px solid $main-color-gray;
+    border-radius: 15px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+
+    &-item{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      &__count{
+        color: $main-color-white;
+        font-size: 24px;
+      }
+
+      &__des {
+        color: $main-color-white;
+        font-size: 14px;
+      }
+
+    }
+  }
+
+  &-statistic {
+    margin-top: 50px;
+    width: 50%;
+
+    &-box {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  }
+
+}
+.statistic-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $main-color-gray;
+  width: 100%;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  &:hover &__svg {
+    background: $main-color-purple;
+    transition: all 0.5s;
+  }
+
+  &__svg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    background: $main-color-black;
+    border-radius: 15px;
+    transition: all 0.5s;
+  }
+  &__des {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: $main-color-white;
+  }
+  &__count {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: $main-color-white;
+  }
+}
+/* END PROFILE PAGES */

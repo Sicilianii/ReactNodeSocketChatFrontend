@@ -33,7 +33,6 @@ export default function SingIn() {
             },
             redirect: "follow",
             referrerPolicy: "no-referrer",
-            method: "POST",
             body: JSON.stringify({
                 "email": email.value,
                 "pass": md5(pass.value)

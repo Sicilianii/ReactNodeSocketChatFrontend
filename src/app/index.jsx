@@ -11,6 +11,7 @@ import SingIn from "../pages/SingIn/SingIn";
 import SingUp from "../pages/SingUp/SingUp";
 import { getGroupChat } from "../shared/lib/helpers/getGroupChat";
 import { getRecentChat } from "../shared/lib/helpers/getRecentChat";
+import MyProfile from "../pages/MyProfile/MyProfile";
 
 export default function App() {
 
@@ -69,6 +70,12 @@ export default function App() {
                     ]
                 }
             ]
+        },
+        {
+            path: '/profile',
+            element: <MyProfile />,
+            errorElement: <NotFound />,
+            // loader: func...,
         }
     ]);
 
