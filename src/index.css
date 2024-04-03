@@ -1024,7 +1024,7 @@ body {
   margin: 0;
   text-align: left;
   width: fit-content;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 500;
 }
 
@@ -1033,7 +1033,7 @@ body {
   margin: 0;
   text-align: left;
   width: fit-content;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   display: flex;
   justify-content: flex-start;
@@ -1054,17 +1054,19 @@ body {
 }
 .profile-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 30px;
-  width: 50%;
+  max-width: 410px;
+  width: 100%;
 }
 .profile-info__data {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: flex-start;
-  gap: 15px;
+  gap: 10px;
+  width: 100%;
 }
 .profile-stats {
   width: 100%;
@@ -1072,10 +1074,10 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   border: 10px solid rgb(49, 49, 49);
   border-radius: 15px;
-  padding: 10px 30px;
+  padding: 10px 20px;
   box-sizing: border-box;
 }
 .profile-stats-item {
@@ -1083,22 +1085,25 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   gap: 10px;
 }
 .profile-stats-item__count {
   color: rgb(255, 255, 255);
-  font-size: 24px;
+  font-size: 20px;
 }
 .profile-stats-item__des {
   color: rgb(255, 255, 255);
-  font-size: 14px;
+  font-size: 12px;
+  text-wrap: nowrap;
 }
 .profile-statistic {
-  margin-top: 50px;
-  width: 50%;
+  margin-top: 20px;
+  max-width: 410px;
+  width: 100%;
 }
 .profile-statistic-box {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -1110,7 +1115,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgb(49, 49, 49);
-  width: 100%;
+  width: 130px;
   border-radius: 15px;
   padding: 10px;
   box-sizing: border-box;
@@ -1125,21 +1130,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px 10px;
+  padding: 10px 10px;
   box-sizing: border-box;
   background: rgb(22, 22, 22);
   border-radius: 15px;
   transition: all 0.5s;
 }
 .statistic-item__des {
-  margin-top: 20px;
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 12px;
   font-weight: 600;
   color: rgb(255, 255, 255);
 }
 .statistic-item__count {
-  margin-top: 10px;
-  font-size: 20px;
+  margin-top: 5px;
+  font-size: 18px;
   font-weight: 500;
   color: rgb(255, 255, 255);
 }
