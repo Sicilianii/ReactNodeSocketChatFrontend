@@ -8,7 +8,7 @@ import ProfileHeader from "../../shared/ui/ProfileHeader/ProfileHeader";
 import StatisticsItem from "../../shared/ui/StatisticsItem/StatisticsItem";
 import ProfileListFriends from "../../shared/ui/ProfileListFriends/ProfileListFriends";
 
-export default function MyProfile() {
+export default function OtherProfile() {
 
     const {currentProfile, currentProfileFriends} = useLoaderData();
 
