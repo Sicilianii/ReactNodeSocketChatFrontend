@@ -1019,15 +1019,6 @@ body {
 }
 
 /* END LOG IN PAGES */
-.full-profile-name {
-  color: rgb(255, 255, 255);
-  margin: 0;
-  text-align: left;
-  width: fit-content;
-  font-size: 24px;
-  font-weight: 500;
-}
-
 .profile-job-title {
   color: rgb(255, 255, 255);
   margin: 0;
@@ -1051,6 +1042,7 @@ body {
 .profile {
   padding: 40px 30px;
   box-sizing: border-box;
+  height: 100%;
 }
 .profile-info {
   display: flex;
@@ -1097,16 +1089,47 @@ body {
   font-size: 12px;
   text-wrap: nowrap;
 }
-.profile-statistic {
+.profile-statistic, .profile-friends {
   margin-top: 20px;
   max-width: 410px;
   width: 100%;
 }
-.profile-statistic-box {
+.profile-statistic-box, .profile-friends-box {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
   gap: 10px;
+}
+.profile-statistic-wrapper, .profile-friends-wrapper {
+  margin-top: 10px;
+  background-color: rgb(49, 49, 49);
+  width: 100%;
+  height: 155px;
+  overflow: auto;
+  border-radius: 15px;
+  padding: 0 20px 0 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.profile-statistic-item, .profile-friends-item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+.profile-statistic-item:not(:last-child), .profile-friends-item:not(:last-child) {
+  border-bottom: 1px solid rgb(67, 67, 67);
+}
+.profile-statistic__img, .profile-friends__img {
+  max-width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  width: 100%;
 }
 
 .statistic-item {

@@ -12,6 +12,7 @@ import SingUp from "../pages/SingUp/SingUp";
 import { getGroupChat } from "../shared/lib/helpers/getGroupChat";
 import { getRecentChat } from "../shared/lib/helpers/getRecentChat";
 import MyProfile from "../pages/MyProfile/MyProfile";
+import {getProfileInfoById} from "../shared/lib/helpers/getProfileInfoById";
 
 export default function App() {
 
@@ -72,10 +73,10 @@ export default function App() {
             ]
         },
         {
-            path: '/profile',
+            path: '/profile/:profileID',
             element: <MyProfile />,
             errorElement: <NotFound />,
-            // loader: func...,
+            loader: getProfileInfoById
         }
     ]);
 
