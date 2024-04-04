@@ -7,6 +7,7 @@ export default function WhitePurpleButtonShared(
         heightBtn = 'fit-content',
         paddingGtn = '4px 12px',
         fontSIzeBnt = '12px',
+        fontWeightBnt = '400'
     }
 ) {
     return (
@@ -17,6 +18,7 @@ export default function WhitePurpleButtonShared(
             height: heightBtn,
             padding: paddingGtn,
             fontSize: fontSIzeBnt,
+            fontWeight: fontWeightBnt,
             border: "none",
             outline: 'none',
             borderRadius: '30px',
