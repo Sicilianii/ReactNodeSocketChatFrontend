@@ -9,13 +9,14 @@ import {getAllGroupChatAPI} from "./app/slice/groupChatSlice";
 import {getAllRecentChatAPI} from "./app/slice/recentChatSlice";
 import {Provider} from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import RequireAuth from "./app/auth/Auth";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <PersistGate persistor={persistor}>
         <Provider store={ STORE }>
-          <App />
+                <App />
         </Provider>
     </PersistGate>
 );

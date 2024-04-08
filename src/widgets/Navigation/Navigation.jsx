@@ -1,7 +1,17 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {logOutProfile} from "../../app/slice/profileInfoSlice";
 
 
 export default function Navigation__widget() {
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const logOutHandle = () => {
+        dispatch(logOutProfile())
+        navigate('/singIn');
+    }
+
     return(
         <ul className={'nav'}>
             <li className={'nav-item'}>
@@ -15,29 +25,29 @@ export default function Navigation__widget() {
                 </Link>
             </li>
             <li className={'nav-item'}>
-                <button className={'nav-item__btn'}>
-                    <svg  className={'nav-item__btn-svg'} xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 576 512" width={25} height={25} fill={'#fff'}>
+                <Link to={`/home`} className={'nav-item__btn'}>
+                    <svg className={'nav-item__btn-svg'} width={25} height={25} fill={'#fff'} viewBox="0 0 24 24" version="1.2" baseProfile="tiny"
+                         xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M319.9 320c57.41 0 103.1-46.56 103.1-104c0-57.44-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104C215.9 273.4 262.5 320 319.9 320zM369.9 352H270.1C191.6 352 128 411.7 128 485.3C128 500.1 140.7 512 156.4 512h327.2C499.3 512 512 500.1 512 485.3C512 411.7 448.4 352 369.9 352zM512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80S467.8 160 512 160zM183.9 216c0-5.449 .9824-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5C196.7 280.2 183.9 249.7 183.9 216zM128 160c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80S83.82 160 128 160zM551.9 192h-61.84c-12.8 0-24.88 3.037-35.86 8.24C454.8 205.5 455.8 210.6 455.8 216c0 33.71-12.78 64.21-33.16 88h199.7C632.1 304 640 295.6 640 285.3C640 233.8 600.6 192 551.9 192z"></path>
+                            d="M21 7h-3c0-1.65-1.35-3-3-3h-12c-1.65 0-3 1.35-3 3v7c0 1.65 1.35 3 3 3v3l3-3c0 1.65 1.35 3 3 3h8l3 3v-3h1c1.65 0 3-1.35 3-3v-7c0-1.65-1.35-3-3-3zm-18 8c-.542 0-1-.458-1-1v-7c0-.542.458-1 1-1h12c.542 0 1 .458 1 1v1h-6.5c-1.379 0-2.5 1.121-2.5 2.5v4.5h-4zm19 2c0 .542-.458 1-1 1h-12c-.542 0-1-.458-1-1v-6.5c0-.827.673-1.5 1.5-1.5h11.5c.542 0 1 .458 1 1v7z"/>
                     </svg>
-                </button>
+                </Link>
             </li>
             <li className={'nav-item'}>
-                <button className={'nav-item__btn'}>
-                    <svg  className={'nav-item__btn-svg'} xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 576 512" width={25} height={25} fill={'#fff'}>
+                <Link to={`/profile/my`} className={'nav-item__btn'}>
+                    <svg className={'nav-item__btn-svg'} width={25} height={25} fill={'#fff'} viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM80 256C71.16 256 64 263.2 64 272V368C64 376.8 71.16 384 80 384H176C184.8 384 192 376.8 192 368V272C192 263.2 184.8 256 176 256H80z"></path>
+                            d="M12,11A5,5,0,1,0,7,6,5.006,5.006,0,0,0,12,11Zm0-8A3,3,0,1,1,9,6,3,3,0,0,1,12,3ZM4,23H20a1,1,0,0,0,1-1V18a5.006,5.006,0,0,0-5-5H8a5.006,5.006,0,0,0-5,5v4A1,1,0,0,0,4,23Zm1-5a3,3,0,0,1,3-3h8a3,3,0,0,1,3,3v3H5Z"/>
                     </svg>
-                </button>
+                </Link>
             </li>
             <li className={'nav-item'}>
-                <button className={'nav-item__btn'}>
-                    <svg  className={'nav-item__btn-svg'} xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 576 512" width={25} height={25} fill={'#fff'}>
+                <button className={'nav-item__btn'} onClick={ logOutHandle }>
+                    <svg className={'nav-item__btn-svg'} width={25} height={25} fill={'#fff'} viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M0 80C0 53.49 21.49 32 48 32H144C170.5 32 192 53.49 192 80V96H384V80C384 53.49 405.5 32 432 32H528C554.5 32 576 53.49 576 80V176C576 202.5 554.5 224 528 224H432C405.5 224 384 202.5 384 176V160H192V176C192 177.7 191.9 179.4 191.7 180.1L272 288H368C394.5 288 416 309.5 416 336V432C416 458.5 394.5 480 368 480H272C245.5 480 224 458.5 224 432V336C224 334.3 224.1 332.6 224.3 331L144 224H48C21.49 224 0 202.5 0 176V80z"></path>
+                            d="M2 6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v2a1 1 0 1 1-2 0V6H4v12h9v-2a1 1 0 1 1 2 0v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm15.293 2.293a1 1 0 0 1 1.414 0l3 3a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414-1.414L18.586 13H9a1 1 0 1 1 0-2h9.586l-1.293-1.293a1 1 0 0 1 0-1.414z"/>
                     </svg>
                 </button>
             </li>

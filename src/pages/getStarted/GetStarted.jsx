@@ -7,11 +7,12 @@ import PleaseSelectChat_routes from "../../app/routes/PleaseSelectChat_routes";
 import NotFoundChat_routes from "../../app/routes/NotFoundChat_routes";
 import SwitchChat__widget from "../../widgets/SwitchChat/SwitchChat";
 import React from "react";
+import {useSelector} from "react-redux";
 
 export default function  GetStarted() {
 
     console.log("RENDER START")
-
+    const profile = useSelector( state => state.profile);
 
     return(
         <>
@@ -19,7 +20,7 @@ export default function  GetStarted() {
             <h1 className={'start-head__h1'}>Discover your</h1>
             <p className={'start-head__des'}>Find out what topics you find interesting, learn new skills, and connect
                 with like-minded individuals.</p>
-            <Link to={'/singIn'} className={'start-head__btn'}>
+            <Link to={profile.auth ? '/home' : '/singIn'} className={'start-head__btn'}>
                 <WhitePurpleButtonShared fontSIzeBnt={'18px'} paddingGtn={'8px 40px'}>Get
                     started</WhitePurpleButtonShared>
             </Link>

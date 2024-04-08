@@ -1,7 +1,7 @@
 import YourChats__widget from "../../widgets/YourChats/YourChats";
 import Search__widget from "../../widgets/Search/Search";
 import Navigation__widget from "../../widgets/Navigation/Navigation";
-import {Outlet} from "react-router-dom";
+import {Navigate, Outlet} from "react-router-dom";
 import React from "react";
 import {useSelector} from "react-redux";
 import {STORE} from "../../app/store/store";
@@ -14,17 +14,19 @@ import {SocketContext} from "../../app/context/SocketContext";
 
 export default function Home() {
 
-    const profile = useSelector( state => state.profile.entities);
+    const profile = useSelector( state => state.profile);
 
-    STORE.dispatch(getAllUsersAPI(profile._id));
-    STORE.dispatch(getAllGroupChatAPI(profile._id));
-    STORE.dispatch(getAllRecentChatAPI(profile._id));
+    if (profile.auth) {
+        STORE.dispatch(getAllUsersAPI(profile.entities._id));
+        STORE.dispatch(getAllGroupChatAPI(profile.entities._id));
+        STORE.dispatch(getAllRecentChatAPI(profile.entities._id));
+    }
 
     const socket = io();
 
     console.log("RENDER HOME")
 
-    return(
+    return profile.auth ? (
         <SocketContext.Provider value={socket}>
             <main className={'main container'}>
                 <Navigation__widget />
@@ -37,5 +39,5 @@ export default function Home() {
                 </div>
             </main>
         </SocketContext.Provider>
-    );
+    ) : <Navigate to="/singIn" />
 }
