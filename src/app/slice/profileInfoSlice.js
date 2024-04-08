@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     status: 'idle',
+    auth: false,
     entities: {}
 };
 
@@ -10,9 +11,11 @@ const profileInfoSlice = createSlice({
     initialState,
     reducers: {
         singInProfile: (state, action) => {
-            return {...state, entities: action.payload, status: 'loaded'}
+            return {...state, entities: action.payload, status: 'loaded', auth: true}
         },
-        logOutProfile: () => {},
+        logOutProfile: (state, action) => {
+            return {...state, entities: [], status: 'idle', auth: false}
+        },
         changeProfileName: (state, action) => {
             return {...state, entities: {...state.entities, nameUser: action.payload.name}}
         },

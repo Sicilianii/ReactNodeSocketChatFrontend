@@ -1,5 +1,5 @@
 import Navigation__widget from "../../widgets/Navigation/Navigation";
-import { useLoaderData } from "react-router-dom";
+import {Navigate, useLoaderData} from "react-router-dom";
 import ProfileImage from "../../shared/ui/ProfileImage/ProfileImage";
 import FullProfileName from "../../shared/ui/FullProfileName/FullProfileName";
 import ProfileJobTitle from "../../shared/ui/ProfileJobTitle/ProfileJobTitle";
@@ -7,14 +7,16 @@ import ProfileStats from "../../shared/ui/ProfileStats/ProfileStats";
 import ProfileHeader from "../../shared/ui/ProfileHeader/ProfileHeader";
 import StatisticsItem from "../../shared/ui/StatisticsItem/StatisticsItem";
 import ProfileListFriends from "../../shared/ui/ProfileListFriends/ProfileListFriends";
+import {useSelector} from "react-redux";
+import React from "react";
 
 export default function OtherProfile() {
 
     const {currentProfile, currentProfileFriends} = useLoaderData();
+    const myProfileInfo = useSelector(state => state.profile);
 
 
-
-    return(
+    return myProfileInfo.auth ? (
         <main className={'main container'}>
             <Navigation__widget />
             <div className={'page-wrapper'}>
@@ -63,5 +65,5 @@ export default function OtherProfile() {
 
             </div>
         </main>
-    );
+    ) : <Navigate to="/singIn" />
 }

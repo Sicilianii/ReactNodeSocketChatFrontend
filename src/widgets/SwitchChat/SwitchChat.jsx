@@ -1,10 +1,10 @@
 import TopBarActiveUser__widget from "../TopBarActiveUser/TopBarActiveUser";
 import CardActiveUser__entities from "../../entities/CardActiveUser/CardActiveUser";
 import Chat__features from "../../features/Chat/Chat";
-import {useLoaderData, useParams} from "react-router-dom";
+import {Navigate, useLoaderData, useParams} from "react-router-dom";
 import {SocketContext} from "../../app/context/SocketContext";
 import {ChatContext} from "../../app/context/ChatContext";
-import {useContext, useEffect, useMemo} from "react";
+import React, {useContext, useEffect, useMemo} from "react";
 import {useSelector} from "react-redux";
 
 import {io} from "socket.io-client";
@@ -12,21 +12,22 @@ import {io} from "socket.io-client";
 
 export default function SwitchChat__widget({type}) {
 
+    const myProfileInfo = useSelector(state => state.profile);
     const ChatInfo = useLoaderData();
     const SOCKET = useContext(SocketContext);
     const { chatId } = useParams();
-    const profile = useSelector( state => state.profile.entities);
+
     
-    console.log(profile)
+    console.log(myProfileInfo)
 
     console.log("RENDER ROUTE")
     
-    SOCKET.emit('leaveConnection', chatId, profile);
-    SOCKET.emit('newConnection', chatId, profile)
+    SOCKET.emit('leaveConnection', chatId, myProfileInfo.entities);
+    SOCKET.emit('newConnection', chatId, myProfileInfo.entities)
 
     
 
-    return(
+    return myProfileInfo.auth ? (
 
         <ChatContext.Provider value={ChatInfo}>
             <div className={'place-chat-wrapper'}>
@@ -38,7 +39,7 @@ export default function SwitchChat__widget({type}) {
             </div>
         </ChatContext.Provider>
 
-    );
+    ) : <Navigate to="/singIn" />
 }
 
 

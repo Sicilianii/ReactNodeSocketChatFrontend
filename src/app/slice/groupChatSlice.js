@@ -14,7 +14,7 @@ const groupChatSlice = createSlice({
             state.status = 'loading';
         });
         builder.addCase(getAllGroupChatAPI.fulfilled, (state, action) => {
-            state.entities = [...action.payload];
+            state.entities = [...action?.payload];
             state.status = 'idle';
         });
     }

@@ -14,7 +14,7 @@ const recentChatSlice = createSlice({
             state.status = 'loading';
         });
         builder.addCase(getAllRecentChatAPI.fulfilled, (state, action) => {
-            state.entities = [...action.payload];
+            state.entities = [...action?.payload];
             state.status = 'idle';
         });
     }

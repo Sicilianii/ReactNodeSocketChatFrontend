@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLoaderData} from "react-router-dom";
+import {Navigate, useLoaderData} from "react-router-dom";
 import Navigation__widget from "../../widgets/Navigation/Navigation";
 import ProfileImage from "../../shared/ui/ProfileImage/ProfileImage";
 import FullProfileName from "../../shared/ui/FullProfileName/FullProfileName";
@@ -64,7 +64,7 @@ function MyProfile() {
         })
     }
 
-    return(
+    return myProfileInfo.auth ? (
         <main className={'main container'}>
             <Navigation__widget />
             <div className={'page-wrapper'}>
@@ -113,7 +113,7 @@ function MyProfile() {
 
             </div>
         </main>
-    );
+    ) : <Navigate to="/singIn" />
 }
 
 export default MyProfile;
