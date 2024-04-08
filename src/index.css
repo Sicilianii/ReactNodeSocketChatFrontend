@@ -424,7 +424,11 @@ body {
   cursor: pointer;
   transition: all 300ms;
 }
-.nav-item__btn:hover .nav-item__btn-svg {
+.nav-item__btn-pending .nav-item__btn-svg {
+  fill: yellow;
+  transition: all 300ms;
+}
+.nav-item__btn-active .nav-item__btn-svg {
   fill: rgb(143, 13, 239);
   transition: all 300ms;
 }
@@ -564,15 +568,34 @@ body {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  overflow: auto;
+  height: 146px;
 }
-.list-chats__item {
+.list-chats__item-link {
   padding: 15px 20px 15px 40px;
   box-sizing: border-box;
   transition: all 500ms;
 }
-.list-chats__item:hover {
-  background: rgb(143, 13, 239);
+.list-chats__item-link-pending {
+  padding: 15px 20px 15px 40px;
+  box-sizing: border-box;
   transition: all 500ms;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.list-chats__item-link-active {
+  padding: 15px 20px 15px 40px;
+  box-sizing: border-box;
+  transition: all 500ms;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: rgb(143, 13, 239);
   cursor: pointer;
 }
 .list-chats__item-link {
