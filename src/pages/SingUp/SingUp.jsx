@@ -37,7 +37,6 @@ export default function SingUp() {
             },
             redirect: "follow",
             referrerPolicy: "no-referrer",
-            method: "POST",
             body: JSON.stringify({
                 "name": userName.value,
                 "email": email.value,

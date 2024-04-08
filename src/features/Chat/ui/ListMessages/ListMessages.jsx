@@ -23,7 +23,7 @@ export default function ListMessages({messages}) {
                 <span className={'message__body-head'}>
                     <Link
                         className={'message__body-head-name'}
-                        to={`/profile/${getNameUserInChat(users.entities, item.users_id)?._id || '65dd9ad63a31f02dbde4ab58'}`}
+                        to={`/profile/${getNameUserInChat(users.entities, item.users_id)?._id || 'my'}`}
                     >
                         { getNameUserInChat(users.entities, item.users_id)?.nameUser || 'You'}
                     </Link>
