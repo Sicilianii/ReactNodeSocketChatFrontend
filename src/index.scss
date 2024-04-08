@@ -56,7 +56,12 @@ body {
     cursor: pointer;
     transition: all 300ms;
 
-    &:hover &-svg {
+    &-pending &-svg {
+      fill: yellow;
+      transition: all 300ms;
+    }
+
+    &-active &-svg {
       fill: $main-color-purple;
       transition: all 300ms;
     }
@@ -214,15 +219,37 @@ body {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  overflow: auto;
+  height: 146px;
 
   &__item {
-    padding: 15px 20px 15px 40px;
-    box-sizing: border-box;
-    transition: all 500ms;
-
-    &:hover {
-      background: $main-color-purple;
+    &-link {
+      padding: 15px 20px 15px 40px;
+      box-sizing: border-box;
       transition: all 500ms;
+    }
+
+    &-link-pending {
+      padding: 15px 20px 15px 40px;
+      box-sizing: border-box;
+      transition: all 500ms;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background: $main-color-white;
+      cursor: pointer;
+    }
+
+    &-link-active {
+      padding: 15px 20px 15px 40px;
+      box-sizing: border-box;
+      transition: all 500ms;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background: $main-color-purple;
       cursor: pointer;
     }
 
