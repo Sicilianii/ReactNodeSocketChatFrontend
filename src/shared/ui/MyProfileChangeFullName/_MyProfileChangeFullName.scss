@@ -1,0 +1,45 @@
+.my-profile-name {
+  display: flex;
+  width: fit-content;
+  justify-content: flex-start;
+
+
+
+  &__inpt {
+    background-color: transparent;
+    color: $main-color-white;
+    font-size: 24px;
+    border: 1px dashed $main-color-purple;
+    border-radius: 8px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    width: 150px;
+  }
+
+  &__btn {
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: $main-color-purple;
+    border: none;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    position: relative;
+    top: -10px;
+    left: -10px;
+
+    &-svg {
+      fill: $main-color-white;
+      width: 10px;
+      height: 10px;
+    }
+
+    &:disabled {
+      background-color: $main-color-white;
+    }
+    &:disabled &-svg {
+      fill: $main-color-black;
+    }
+  }
+}

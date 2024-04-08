@@ -12,9 +12,15 @@ const profileInfoSlice = createSlice({
         singInProfile: (state, action) => {
             return {...state, entities: action.payload, status: 'loaded'}
         },
-        logOutProfile: () => {}
+        logOutProfile: () => {},
+        changeProfileName: (state, action) => {
+            return {...state, entities: {...state.entities, nameUser: action.payload.name}}
+        },
+        changeProfileJobTitle: (state, action) => {
+            return {...state, entities: {...state.entities, job_title: action.payload.title}}
+        }
     }
 });
 
-export const {singInProfile, logOutProfile} = profileInfoSlice.actions;
+export const {singInProfile, logOutProfile, changeProfileName, changeProfileJobTitle} = profileInfoSlice.actions;
 export const profileReducer = profileInfoSlice.reducer;

@@ -13,6 +13,7 @@ import { getGroupChat } from "../shared/lib/helpers/getGroupChat";
 import { getRecentChat } from "../shared/lib/helpers/getRecentChat";
 import {getProfileInfoById} from "../shared/lib/helpers/getProfileInfoById";
 import OtherProfile from "../pages/OtherProfile/OtherProfile";
+import MyProfile from "../pages/MyProfile/MyProfile";
 
 export default function App() {
 
@@ -71,6 +72,11 @@ export default function App() {
                     ]
                 }
             ]
+        },
+        {
+            path: '/profile/my',
+            element: <MyProfile />,
+            errorElement: <NotFound />,
         },
         {
             path: '/profile/:profileID',
