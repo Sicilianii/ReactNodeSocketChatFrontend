@@ -31,7 +31,7 @@ export default function Home() {
             <main className={'main container'}>
                 <Navigation__widget />
                 <div className={'page-wrapper'}>
-                    <Search__widget />
+                    {/*<Search__widget />*/}
                     <div className={'chat-wrapper'}>
                         <YourChats__widget />
                         <Outlet  />
