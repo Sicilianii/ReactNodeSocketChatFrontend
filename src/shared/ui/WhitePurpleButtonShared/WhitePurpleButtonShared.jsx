@@ -9,7 +9,8 @@ export default function WhitePurpleButtonShared(
         fontSIzeBnt = '12px',
         fontWeightBnt = '400',
         type = 'submit',
-        disable = false
+        disable = false,
+        border = 'none'
     }
 ) {
     return (
@@ -21,11 +22,11 @@ export default function WhitePurpleButtonShared(
             padding: paddingGtn,
             fontSize: fontSIzeBnt,
             fontWeight: fontWeightBnt,
-            border: "none",
             outline: 'none',
             borderRadius: '30px',
             cursor: 'pointer',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+            border: border
         }} type={type} disabled={disable}>{children}</button>
     );
 }

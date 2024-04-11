@@ -21,9 +21,12 @@ const profileInfoSlice = createSlice({
         },
         changeProfileJobTitle: (state, action) => {
             return {...state, entities: {...state.entities, job_title: action.payload.title}}
+        },
+        subscription: (state, action) => {
+            return {...state, entities: {...state.entities, subscription: true}}
         }
     }
 });
 
-export const {singInProfile, logOutProfile, changeProfileName, changeProfileJobTitle} = profileInfoSlice.actions;
+export const {subscription, singInProfile, logOutProfile, changeProfileName, changeProfileJobTitle} = profileInfoSlice.actions;
 export const profileReducer = profileInfoSlice.reducer;
