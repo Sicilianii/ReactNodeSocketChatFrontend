@@ -30,7 +30,7 @@ function ProfileListFriends({ arrayFriends }) {
         )
     }
 
-    return arrayFriends.map( (el, id) => <ProfileFriend friend={el} kkey={id}/> );
+    return arrayFriends?.map( (el, id) => <ProfileFriend friend={el} kkey={id}/> );
 }
 
 export default ProfileListFriends;
