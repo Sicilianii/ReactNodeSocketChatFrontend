@@ -1301,19 +1301,22 @@ body {
 }
 .profile-find-list {
   width: 100%;
-  padding: 0;
+  padding: 0 20px 0 0;
+  box-sizing: border-box;
   margin: 0;
   max-height: 122px;
   height: fit-content;
+  overflow: auto;
 }
 .profile-find-form {
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  margin-bottom: 10px;
 }
 .profile-find-wrap {
   margin-top: 10px;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   box-sizing: border-box;
   border-radius: 15px;
   border: 1px solid rgb(67, 67, 67);

@@ -1,10 +1,51 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ProfileHeader from "../../shared/ui/ProfileHeader/ProfileHeader";
 import WhitePurpleButtonShared from "../../shared/ui/WhitePurpleButtonShared/WhitePurpleButtonShared";
+import useDebounce from "../../shared/lib/helpers/useDebounce";
+import ProfileListFriends from "../../shared/ui/ProfileListFriends/ProfileListFriends";
 
-function ProfileFindNewFriends() {
 
-    const [loading, setLoading] = useState(true);
+function ProfileFindNewFriends({profile}) {
+
+    const [loading, setLoading] = useState(false);
+    const [inputValue, setInputValue] = useState('');
+    const [listSearchFriends, setListSearchFriends] = useState([]);
+    const debouncedValue = useDebounce(inputValue, 2000)
+
+    useEffect(() => {
+        if (debouncedValue) {
+            searchUsers(debouncedValue).then( data => {
+                setLoading(false);
+                if (data.status) {
+                    setListSearchFriends(data.entities)
+                }
+            })
+        } else {
+            setLoading(false);
+            setListSearchFriends([]);
+        }
+    }, [debouncedValue]);
+
+
+    const searchUsers = async (query) => {
+        return await fetch(`/profile/${profile._id}/search`, {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            redirect: "follow",
+            referrerPolicy: "no-referrer",
+            body: JSON.stringify({
+                "search": query,
+                "friends": profile.friends
+            })
+        }).then( response => response.json()).catch( e => {
+            console.log(e)
+        })
+    }
 
 
     return (
@@ -15,6 +56,10 @@ function ProfileFindNewFriends() {
                     <div className={'input-wrap'}>
                         <input type="email" placeholder={'mike@example.com'} id={'profile-find'}
                                className={'profile-find-wrap__input'}
+                               onChange={ event => {
+                                   setLoading(true);
+                                   setInputValue(event.target.value)}
+                               }
                         />
                         {loading ?
                             <svg className={'profile-find-wrap__spinner spinner'} fill="rgb(255, 255, 255)" width="20" height="20" viewBox="0 0 32 32"
@@ -34,7 +79,7 @@ function ProfileFindNewFriends() {
                     </WhitePurpleButtonShared>
                 </form>
                 <ul className={'profile-find-list'}>
-                    {/*<ProfileListFriends arrayFriends={myProfileFriends.entities}/>*/}
+                    <ProfileListFriends arrayFriends={listSearchFriends}/>
                 </ul>
             </div>
         </div>

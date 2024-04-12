@@ -24,7 +24,7 @@ export default function Home() {
 
     const socket = io();
 
-    console.log("RENDER HOME")
+    console.log(profile)
 
     return profile.auth ? (
         <SocketContext.Provider value={socket}>
