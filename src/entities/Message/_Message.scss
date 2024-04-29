@@ -1,0 +1,55 @@
+@import "src/app/styles/variables";
+
+.message {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  transition: all 300ms ease;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
+
+    &-text {
+      padding: 0 0 20px 0;
+      box-sizing: border-box;
+      margin: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+
+
+      &-item {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+
+        &-p {
+          color: $main-color-white;
+          width: 80%;
+          word-wrap: anywhere;
+        }
+
+        &-time {
+          color: $main-color-gray-light;
+          display: none;
+          transition: all 300ms ease
+        }
+
+        &:hover &-time {display: block;transition: all 300ms ease}
+      }
+    }
+  }
+}

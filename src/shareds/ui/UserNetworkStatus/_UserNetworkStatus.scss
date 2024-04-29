@@ -1,0 +1,21 @@
+@import "src/app/styles/variables";
+
+.user-net-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  &__marker {
+    display: block;
+    width: 7px;
+    height: 7px;
+    background: $main-color-white;
+    border-radius: 24px;
+  }
+  &__des {
+    color: $main-color-white;
+  }
+
+
+}

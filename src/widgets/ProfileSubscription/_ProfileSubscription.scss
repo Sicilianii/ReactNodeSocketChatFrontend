@@ -1,0 +1,42 @@
+@import "src/app/styles/variables";
+
+.profile {
+  padding: 20px 30px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &-subscription {
+    max-width: 410px;
+    width: 100%;
+
+    &-wrap {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+      border-radius: 15px;
+      border: 1px solid $main-color-gray-light;
+      position: relative;
+
+      &__spinner {
+        position: absolute;
+        bottom: 21px;
+        left: 32%;
+      }
+
+      &__head {
+        color: $main-color-white;
+        font-size: 16px;
+      }
+    }
+  }
+}

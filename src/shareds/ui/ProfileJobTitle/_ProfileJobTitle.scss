@@ -1,0 +1,14 @@
+@import "src/app/styles/variables";
+
+.profile-job-title {
+  color: $main-color-white;
+  margin: 0;
+  text-align: left;
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}

@@ -1,0 +1,47 @@
+@import "src/app/styles/variables";
+
+.profile {
+  padding: 20px 30px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &-stats {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    border: 10px solid $main-color-gray;
+    border-radius: 15px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 10px;
+
+      &__count {
+        color: $main-color-white;
+        font-size: 20px;
+      }
+
+      &__des {
+        color: $main-color-white;
+        font-size: 12px;
+        text-wrap: nowrap;
+      }
+
+    }
+  }
+}

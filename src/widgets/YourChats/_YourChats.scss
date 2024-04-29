@@ -1,0 +1,29 @@
+@import "src/app/styles/variables";
+
+
+.nav-chats {
+  display: flex;
+  flex-direction: column;
+  min-width: 225px;
+  background: $main-color-gray;
+
+  &__heading {
+    padding: 20px;
+    box-sizing: border-box;
+    color: $main-color-white;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+}
+.chat-list {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  height: fit-content;
+  width: 100%;
+}
