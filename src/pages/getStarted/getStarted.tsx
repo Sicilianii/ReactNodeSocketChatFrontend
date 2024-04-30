@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {useTypedSelector} from "../../shareds/lib/hooks/useTypeSelector";
 import WhitePurpleButton from "../../shareds/ui/WhitePurpleButton/WhitePurpleButton";
-import './_getStarted.scss';
+import './_GetStarted.scss';
 
 export default function  GetStarted() {
     const profile = useTypedSelector( state => state.profile);
