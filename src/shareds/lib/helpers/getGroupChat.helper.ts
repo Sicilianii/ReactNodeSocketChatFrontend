@@ -1,4 +1,4 @@
-import {LoaderFunction} from "react-router-dom";
+import {defer, LoaderFunction} from "react-router-dom";
 
 interface Params {
     chatId: string
@@ -6,7 +6,8 @@ interface Params {
 
 const getGroupChat: LoaderFunction = async ( {params} ) => {
     const typedParams = params as unknown as Params;
-    return await fetch(`/chats/group/${typedParams.chatId}`).then(res => res.json()).catch( err => {console.log(err)});
+    const result = await fetch(`/chats/group/${typedParams.chatId}`).then(res => res.json()).catch( err => {console.log(err)});
+    return defer({result});
 }
 
 export default getGroupChat;

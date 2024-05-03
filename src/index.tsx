@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
 
       <PersistGate persistor={persistor}>
           <Provider store={ STORE }>
@@ -21,6 +21,6 @@ root.render(
           </Provider>
       </PersistGate>
 
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 

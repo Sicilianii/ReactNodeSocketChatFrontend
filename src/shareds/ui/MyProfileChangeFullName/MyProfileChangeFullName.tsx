@@ -1,4 +1,4 @@
-import React, {FC, useRef, useState} from 'react';
+import React, {FC, useEffect, useRef, useState} from 'react';
 
 import './_MyProfileChangeFullName.scss'
 import useFocusInput from "../../lib/hooks/useFocusInput";
@@ -34,14 +34,14 @@ const MyProfileChangePlace:FC<IMyProfileChangePlace> = (
     useFocusInput(ref.current, name.statusChanges);
 
 
-    const changeNameHandler = (e?: React.ChangeEvent<HTMLFormElement>) => {
-        if (e) e.preventDefault();
-        if (name.newValue) changeFuncPlace(name.newValue);
-    }
-
+    const changeNameHandler = () => { if (name.newValue) changeFuncPlace(name.newValue); }
 
     return (
-        <form className={'my-profile-name'} onSubmit={ (event :React.ChangeEvent<HTMLFormElement>) => changeNameHandler(event) }>
+        <form className={'my-profile-name'} onSubmit={ (event :React.ChangeEvent<HTMLFormElement>) => {
+            event.preventDefault();
+            setName((state: InitialName) => {return {...state, statusChanges: !state.statusChanges}})
+            changeNameHandler();
+        } }>
             <input
                 className={'my-profile-name__inpt'}
                 type="text" value={name.newValue || name.value}

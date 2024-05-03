@@ -15,6 +15,7 @@ interface IMyProfileInfo {
 function MyProfileInfo({profile}: IMyProfileInfo) {
     const dispatch = useDispatch();
 
+    console.log(profile)
     const changeName = async (name: string) => {
         await fetch(`/profile/${profile._id}/newName`, {
             method: "POST",

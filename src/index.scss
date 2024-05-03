@@ -38,3 +38,17 @@ body {
   justify-content: flex-start;
   height: 100%;
 }
+
+.profile-friends-wrapper {
+  margin-top: 10px;
+  background-color: $main-color-gray;
+  width: 100%;
+  max-height: 244px;
+  height: fit-content;
+  overflow: auto;
+  border-radius: 15px;
+  padding: 0 20px 0 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}

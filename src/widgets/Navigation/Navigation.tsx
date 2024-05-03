@@ -2,6 +2,8 @@ import {NavLink , useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {logOutProfile} from "../../app/store/slices/profile.slice";
 import './_Navigation.scss';
+import {logOutRecent} from "../../app/store/slices/recent.slice";
+import {logOutGroup} from "../../app/store/slices/group.slice";
 
 
 export default function Navigation() {
@@ -10,6 +12,8 @@ export default function Navigation() {
     const dispatch = useDispatch();
     const logOutHandle = () => {
         dispatch(logOutProfile())
+        dispatch(logOutRecent())
+        dispatch(logOutGroup())
         navigate('/singIn');
     }
 

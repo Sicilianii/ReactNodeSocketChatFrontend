@@ -3,16 +3,15 @@ import './_ModalWindow.scss';
 
 interface IModalWindow {
     children: ReactNode,
-    statusWind: boolean
+    statusWind: boolean,
+    handleClose: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const MemoModalWindow = memo(function ModalWindow({children, statusWind}: IModalWindow) {
-    const [close, setClose] = useState<boolean>(statusWind)
-
-    return close ? (
+const MemoModalWindow = memo(function ModalWindow({children, statusWind,handleClose}: IModalWindow) {
+    return statusWind ? (
         <div className={'modal-shadow-wrap'}>
             <div className={'modal'}>
-                <button className={'modal__close'} onClick={() => setClose( state => !state)}>
+                <button className={'modal__close'} onClick={() => handleClose(state => !state)}>
                     <svg className={'modal__close-svg'} viewBox="0 0 16 16"
                          width="16" height="16" fill="none">
                         <svg viewBox="0 0 352 512" width="16" height="16" fill="#fff"

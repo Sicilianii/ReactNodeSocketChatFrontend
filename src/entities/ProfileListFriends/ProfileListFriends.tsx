@@ -13,7 +13,7 @@ interface IProfileListFriends {
 function ProfileFriendsList({friends} : IProfileListFriends) {
     return friends ? (
         <div className={'profile-friends'}>
-            <ProfileHeader>{friends.length ? 'Friends' : 'Friends (Have no friends)'}</ProfileHeader>
+            {/*<ProfileHeader>{friends.length ? 'Friends' : 'Friends (Have no friends)'}</ProfileHeader>*/}
             {friends.length ?
                 <ul className={'profile-friends-wrapper'}>
                     {

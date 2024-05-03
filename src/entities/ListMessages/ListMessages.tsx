@@ -14,22 +14,24 @@ const ListMessages: FC<IListMessages> = ({messages}) => {
     const chat = useContext(ChatContext);
     const my: IUser = useTypedSelector(state => state.profile.entities);
 
-    const currentUser: IUser | undefined = useMemo((): IUser | undefined => {
-        return chat?.users?.find( u => u._id !== my._id);
-    }, [chat?.users, my._id])
+    console.log(chat, "RENDER")
+
+    const getAuthorMessage = (message: IMessages): boolean => {
+        return my._id === message.users_id
+    }
 
     return <>
         {
-            messages.map( (item,id) =>
+            messages && messages.map( (item,id) =>
                 <li key={id} className={'message'}>
                     <div className={'message__img-prof'}></div>
                     <div className={'message__body'}>
                         <span className={'message__body-head'}>
                             <Link
                                 className={'message__body-head-name'}
-                                to={`/profile/${currentUser?._id || 'my'}`}
+                                to={`/profile/${getAuthorMessage(item) ? 'my' : item.users_id}`}
                             >
-                                { currentUser?.nameUser || 'You'}
+                                { getAuthorMessage(item) ? 'You' : item.time_mess}
                             </Link>
                             <span className={'message__body-head-time'}> {String(item.time_mess).valueOf()}</span>
                         </span>

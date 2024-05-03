@@ -6,11 +6,20 @@ import { useDispatch } from "react-redux";
 import {singInProfile} from "../../app/store/slices/profile.slice";
 import WhitePurpleButton from "../../shareds/ui/WhitePurpleButton/WhitePurpleButton";
 import {InputText} from "../../shareds/types";
+import {useTypedSelector} from "../../shareds/lib/hooks/useTypeSelector";
+import {getAllRecentChatAPI} from "../../app/store/slices/recent.slice";
+import {getAllGroupChatAPI} from "../../app/store/slices/group.slice";
 
 
 export default function SingIn() {
 
+    const recents = useTypedSelector(state => state.recent);
+    const groups = useTypedSelector(state => state.group);
+    const my = useTypedSelector(state => state.profile);
 
+    // console.log('THIS RECENT CHATS', recents);
+    // console.log('THIS GROUP CHATS', groups);
+    // console.log('MY', my);
 
     const [email, setEmail] = useState<InputText>({
         value: '',
@@ -69,6 +78,12 @@ export default function SingIn() {
             .then(user => {
                 if (user) {
                     dispatch(singInProfile(user));
+
+                    // @ts-ignore
+                    dispatch(getAllRecentChatAPI(user._id))
+
+                    // @ts-ignore
+                    dispatch(getAllGroupChatAPI(user._id))
                     setLoading(false);
                     navigate('/home');
                 }

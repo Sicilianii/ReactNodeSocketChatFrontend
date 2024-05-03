@@ -15,7 +15,11 @@ interface ILoaderData {
 
 export default function OtherProfile() {
 
-    const {currentProfile}: ILoaderData = useTypedLoaderData<ILoaderData>();
+    const currentProfile: IUser = useTypedLoaderData<IUser>();
+
+    console.log(currentProfile)
+
+
     const myProfileInfo = useTypedSelector(state => state.profile);
 
 

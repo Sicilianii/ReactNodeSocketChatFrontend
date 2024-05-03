@@ -1,8 +1,8 @@
 import './_UserName.scss';
 
-const UserName = () => {
+const UserName = ({children}: {children?: string}) => {
     return (
-        <span className={'user-name'}>СТАТИКА</span>
+        <span className={'user-name'}>{ children || 'Unknown' }</span>
     );
 }
 

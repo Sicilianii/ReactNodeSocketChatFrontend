@@ -10,7 +10,7 @@ const TopBarActiveUser = () => {
     const myID = useTypedSelector(state => state.profile.entities._id);
     const chat = useContext(ChatContext);
 
-
+    // console.log(chat, 'users')
 
 
     return(

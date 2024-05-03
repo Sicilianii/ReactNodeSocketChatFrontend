@@ -40,7 +40,7 @@ export default function CardActiveUser() {
 
             <div className={'user-wrapper'}>
 
-                <UserName />
+                <UserName>{String(currentUser?.nameUser).valueOf()}</UserName>
                 <UserNetworkStatus />
 
             </div>

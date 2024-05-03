@@ -14,9 +14,14 @@ const initialState: InitialRecentChat = {
 const recentChatSlice = createSlice({
     name: 'recent',
     initialState,
-    reducers: {},
+    reducers: {
+        logOutRecent: (state) => {
+            state.entities = [];
+            state.status = 'idle';
+        }
+    },
     extraReducers: builder => {
-        builder.addCase(getAllRecentChatAPI.pending, (state, action) => {
+        builder.addCase(getAllRecentChatAPI.pending, (state) => {
             state.status = 'loading';
         });
         builder.addCase(getAllRecentChatAPI.fulfilled, (state, action) => {
@@ -32,3 +37,4 @@ export const getAllRecentChatAPI = createAsyncThunk('recent/getAllChats', async 
 });
 
 export const RecentChatReducer = recentChatSlice.reducer;
+export const {logOutRecent} = recentChatSlice.actions

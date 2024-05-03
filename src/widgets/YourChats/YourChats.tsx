@@ -11,6 +11,7 @@ export default function YourChats() {
     const groups = useTypedSelector(state => state.group.entities)
     const my = useTypedSelector(state => state.profile.entities);
 
+
     return  (
         <div className={'nav-chats'}>
             <span className={'nav-chats__heading'}>Your Chats</span>
@@ -19,29 +20,29 @@ export default function YourChats() {
 
                     <AccordChats heading={'Group'}>
                         {
-                            recents.map((item, id) =>
-                                    <NavLink key={id} to={`/home/chats/recent/${item._id}`} className={({ isActive, isPending }) =>
+                            groups.map((item, id) =>
+                                    <NavLink key={id} to={`/home/chats/group/${item._id}`}  className={({ isActive, isPending }) =>
                                         isPending ? "list-chats__item-link-pending" : isActive ? "list-chats__item-link-active" : "list-chats__item-link"
                                     }>
-                                        <span className={'list-chats__item-name'}>{ item.users?.find( u => u._id !== my._id)?.nameUser || 'unknown' }</span>
+                                        <span className={'list-chats__item-name'}>{ item.nameChat }</span>
                                     </NavLink >
                             )
                         }
                     </AccordChats>
                     <AccordChats heading={'Recent'}>
                         {
-                            groups.map((item, id) =>
-                                <NavLink key={id} to={`/home/chats/group/${item._id}`} className={({ isActive, isPending }) =>
+                            recents.map((item, id) =>
+                                <NavLink key={id} to={`/home/chats/recent/${item._id}`} className={({ isActive, isPending }) =>
                                     isPending ? "list-chats__item-link-pending" : isActive ? "list-chats__item-link-active" : "list-chats__item-link"
                                 }>
-                                    <span className={'list-chats__item-name'}>{ item.nameChat }</span>
+                                    <span className={'list-chats__item-name'}>{ String(item.users?.find( u => u._id !== my._id)?.nameUser).valueOf() || 'unknown' }</span>
                                 </NavLink >
                             )
                         }
                     </AccordChats>
 
                 </ul>
-                <AddNewChat/>
+                <AddNewChat />
             </div>
         </div>
     );

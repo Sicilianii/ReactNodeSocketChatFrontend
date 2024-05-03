@@ -1,5 +1,6 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {AsyncThunk, createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IGroupChat} from "../../../shareds/types";
+import {logOutProfile} from "./profile.slice";
 
 interface InitialGroupChat {
     status: string,
@@ -14,7 +15,12 @@ const initialState: InitialGroupChat = {
 const groupChatSlice = createSlice({
     name: 'group',
     initialState,
-    reducers: {},
+    reducers: {
+        logOutGroup: (state) => {
+            state.entities = [];
+            state.status = 'idle';
+        }
+    },
     extraReducers: builder => {
         builder.addCase(getAllGroupChatAPI.pending, (state) => {
             state.status = 'loading';
@@ -32,3 +38,5 @@ export const getAllGroupChatAPI = createAsyncThunk('group/getAllChats', async (u
 });
 
 export const GroupChatReducer = groupChatSlice.reducer;
+
+export const {logOutGroup} = groupChatSlice.actions
