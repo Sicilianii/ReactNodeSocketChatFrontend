@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@app": ["scr/app"],
+      "@app/*": ["scr/app/*"],
+
+      "@pages": ["scr/pages"],
+      "@pages/*": ["scr/pages/*"],
+
+      "@widgets": ["scr/widgets"],
+      "@widgets/*": ["scr/widgets/*"],
+
+      "@features": ["scr/features"],
+      "@features/*": ["scr/features/*"],
+
+      "@entities": ["scr/entities"],
+      "@entities/*": ["scr/entities/*"],
+
+      "@shared": ["scr/shared"],
+      "@shared/*": ["scr/shared/*"],
+    }
+  }
+}
