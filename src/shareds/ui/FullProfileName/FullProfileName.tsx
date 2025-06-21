@@ -1,31 +1,28 @@
-import React, {FC} from 'react';
+import type { PropsWithChildren, FC } from 'react';
 
-interface IFullProfileName {
+interface IFullProfileNameProps {
     fontSizeName?: string,
     fontWeightName?: string,
     colorName?: string,
-    widthName?: string,
-    children?: React.ReactNode
+    widthName?: string
 }
 
-const FullProfileName: FC<IFullProfileName> = (
+export const FullProfileName: FC<PropsWithChildren<IFullProfileNameProps>> = (
     {
-        fontSizeName  = '24px',
-        fontWeightName = '500',
-        colorName = 'rgb(255, 255, 255)',
-        widthName = 'fit-content',
+        fontSizeName,
+        fontWeightName,
+        colorName,
+        widthName,
         children
     }) => {
     return (
         <span style={{
-            fontSize: fontSizeName,
-            fontWeight: fontWeightName,
-            color: colorName,
+            fontSize: fontSizeName ?? '24px',
+            fontWeight: fontWeightName ?? '500',
+            color: colorName ?? 'rgb(255, 255, 255)',
             margin: 0,
             textAlign: 'left',
-            width: widthName
+            width: widthName ?? 'fit-content'
         }}>{children}</span>
     );
 }
-
-export default FullProfileName;

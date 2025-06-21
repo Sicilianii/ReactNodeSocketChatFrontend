@@ -1,6 +1,6 @@
-import {FC, ReactNode} from "react";
+import type {FC, PropsWithChildren} from "react";
 
-export enum TypeBtn {
+enum TypeBtn {
     SUBMIT = 'submit',
     RESET = 'reset',
     BUTTON = 'button'
@@ -8,7 +8,6 @@ export enum TypeBtn {
 
 interface IWhitePurpleButton {
     className?: string
-    children?: ReactNode,
     backgroundBtn?: string,
     colorText?: string,
     widthBtn?: string,
@@ -21,36 +20,35 @@ interface IWhitePurpleButton {
     border?: string
 }
 
-const WhitePurpleButton: FC<IWhitePurpleButton> = (
+export const WhitePurpleButton: FC<PropsWithChildren<IWhitePurpleButton>> = (
     {
         children,
-        backgroundBtn = 'rgb(143, 13, 239)',
-        colorText = 'white',
-        widthBtn = 'fit-content',
-        heightBtn = 'fit-content',
-        paddingGtn = '4px 12px',
-        fontSIzeBnt = '12px',
-        fontWeightBnt = '400',
-        type = TypeBtn.SUBMIT,
-        disable = false,
-        border = 'none'
+        backgroundBtn,
+        colorText,
+        widthBtn,
+        heightBtn,
+        paddingGtn,
+        fontSIzeBnt,
+        fontWeightBnt,
+        type,
+        disable,
+        border
     }
 ) => {
     return (
         <button style={{
-            background: backgroundBtn,
-            color: colorText,
-            width: widthBtn,
-            height: heightBtn,
-            padding: paddingGtn,
-            fontSize: fontSIzeBnt,
-            fontWeight: fontWeightBnt,
+            background: backgroundBtn ?? 'rgb(143, 13, 239)',
+            color: colorText ?? 'white',
+            width: widthBtn ?? 'fit-content',
+            height: heightBtn ?? 'fit-content',
+            padding: paddingGtn ?? '4px 12px',
+            fontSize: fontSIzeBnt ?? '12px',
+            fontWeight: fontWeightBnt ?? '400',
             outline: 'none',
             borderRadius: '30px',
             cursor: 'pointer',
             boxSizing: 'border-box',
-            border: border,
-        }} type={type} disabled={disable}>{children}</button>
+            border: border ?? 'none',
+        }} type={type ?? TypeBtn.SUBMIT} disabled={disable}>{children}</button>
     );
 }
-export default WhitePurpleButton;

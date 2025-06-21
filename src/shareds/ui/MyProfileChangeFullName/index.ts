@@ -1,0 +1,1 @@
+export {MyProfileChangePlace} from './MyProfileChangeFullName'

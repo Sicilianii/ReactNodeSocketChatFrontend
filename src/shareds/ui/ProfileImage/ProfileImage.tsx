@@ -1,14 +1,8 @@
-import React from 'react';
+import type {FC} from 'react';
 
-interface IProfileImage {
-    widthImg: number,
-    heightImg: number
+interface IProfileImageProps {
+    widthImg?: number,
+    heightImg?: number
 }
 
-const ProfileImage = ({widthImg = 100, heightImg = 100}: IProfileImage) => {
-    return (
-        <img src={ require('../../assets/img/user1.png') } width={widthImg} height={heightImg} alt=""/>
-    );
-}
-
-export default ProfileImage;
+export const ProfileImage: FC<IProfileImageProps> = ({widthImg, heightImg}) => (<img src={ require('../../assets/img/user1.png') } width={widthImg ?? 100} height={heightImg ?? 100} alt=''/>);

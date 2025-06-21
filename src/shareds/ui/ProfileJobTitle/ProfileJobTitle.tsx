@@ -1,14 +1,4 @@
-import React, {FC} from 'react';
+import {FC, PropsWithChildren} from 'react';
 import './_ProfileJobTitle.scss'
 
-interface IProfileJobTitle {
-    children?: React.ReactNode
-}
-
-const ProfileJobTitle:FC<IProfileJobTitle> = ({children}) => {
-    return (
-        <span className={'profile-job-title'}>{children}</span>
-    );
-}
-
-export default ProfileJobTitle;
+export const ProfileJobTitle:FC<PropsWithChildren> = ({children}) => (<span className='profile-job-title'>{children}</span>);

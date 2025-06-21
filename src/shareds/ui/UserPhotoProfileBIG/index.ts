@@ -1,0 +1,1 @@
+export {UserPhotoProfileBIG} from './UserPhotoProfileBIG'

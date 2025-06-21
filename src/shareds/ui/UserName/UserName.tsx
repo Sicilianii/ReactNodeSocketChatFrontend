@@ -1,9 +1,4 @@
 import './_UserName.scss';
+import type {FC, PropsWithChildren} from "react";
 
-const UserName = ({children}: {children?: string}) => {
-    return (
-        <span className={'user-name'}>{ children || 'Unknown' }</span>
-    );
-}
-
-export default UserName;
+export const UserName: FC<PropsWithChildren> = ({children}) => (<span className={'user-name'}>{ children || 'Unknown' }</span>)
